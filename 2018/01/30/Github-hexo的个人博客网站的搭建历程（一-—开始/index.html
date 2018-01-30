@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Tao.的博客小站">
 <meta property="og:description" content="1. 开头最近正想着建立一个博客网站，虽然有HTML,CSS的基础，但是对于建站的流程，需要什么都一无所知，看了不少的百度，知乎上的解答之后渐渐总结出了两个自建Blog的方法 •第一种是用 服务器+worldpress 的动态网页Blog系统，优点是用的动态网页可以直接管理和更新，插件和主题丰富，缺点是对服务器要求较高，需要会点数据库，网上插件质量参差不齐，需要花时间和精力去优化和修改 •第二种是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-29T19:15:57.677Z">
+<meta property="og:updated_time" content="2018-01-30T10:34:14.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github+hexo的个人博客网站的搭建历程(一)—开始">
 <meta name="twitter:description" content="1. 开头最近正想着建立一个博客网站，虽然有HTML,CSS的基础，但是对于建站的流程，需要什么都一无所知，看了不少的百度，知乎上的解答之后渐渐总结出了两个自建Blog的方法 •第一种是用 服务器+worldpress 的动态网页Blog系统，优点是用的动态网页可以直接管理和更新，插件和主题丰富，缺点是对服务器要求较高，需要会点数据库，网上插件质量参差不齐，需要花时间和精力去优化和修改 •第二种是">
@@ -190,23 +190,29 @@
 <p>这条指令将启动本地服务器，并且会监视你对网页文件的变动进行改动<br>在浏览器输入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 即可访问你建立好的网站。</p>
 <h2 id="3-创建Github账号"><a href="#3-创建Github账号" class="headerlink" title="3. 创建Github账号"></a>3. 创建Github账号</h2><h3 id="1-访问Github官网，进行账号注册"><a href="#1-访问Github官网，进行账号注册" class="headerlink" title="1. 访问Github官网，进行账号注册"></a>1. 访问Github官网，进行账号注册</h3><p>在<a href="https://guides.github.com/activities/hello-world/" target="_blank" rel="noopener">Github guides</a>上学习如何建立一个库和如何管理，之后可以直接百度Github教程，因为你还需要快速学会如何使用git来管理你的库，所以不需要马上去翻阅详细的官方教程</p>
 <h3 id="2-建立一个和自己账户名相同的库（Repository）"><a href="#2-建立一个和自己账户名相同的库（Repository）" class="headerlink" title="2. 建立一个和自己账户名相同的库（Repository）"></a>2. 建立一个和自己账户名相同的库（Repository）</h3><p>建立库比较简单，不会的话请重新翻阅git教程或者<a href="https://guides.github.com/activities/hello-world/" target="_blank" rel="noopener">Github guides</a></p>
-<p><font color="#ff00"><strong>※注意：库名称必须与你的账户名同名，这样这个库就会自动的开通HTML网页功能</strong></font></p>
+<font color="#ff00"><strong>※注意：库名称必须与你的账户名同名，这样这个库就会自动的开通HTML网页功能</strong></font>
+
 <h3 id="3-创建一个SSH密匙"><a href="#3-创建一个SSH密匙" class="headerlink" title="3. 创建一个SSH密匙"></a>3. 创建一个SSH密匙</h3><p>创建SSH的原因是增加账户的安全，避免频繁的使用明文密码登录<br>Git输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"邮箱"</span></span><br></pre></td></tr></table></figure></p>
 <p>其中双引号内输入你的邮箱<br>比如你的邮箱是12345@qq.com<br>那么你应输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"12345@qq.com"</span></span><br></pre></td></tr></table></figure></p>
 <p>一路按回车，之后你将会看到生成成功提示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved <span class="keyword">in</span> /c/Users/Administrator/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/Administrator/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:N20m0PnwfNSZZaCOvp8gW8Fac49kIQo1fUMz+490AO8 “12345@qq.com</span><br><span class="line">The key<span class="string">'s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 2048]----+</span></span><br><span class="line"><span class="string">|        o. .= ..o|</span></span><br><span class="line"><span class="string">|       . o..oB o+|</span></span><br><span class="line"><span class="string">|      . . =.+.+o.|</span></span><br><span class="line"><span class="string">|       . + X = . |</span></span><br><span class="line"><span class="string">|        S X % E .|</span></span><br><span class="line"><span class="string">|         = @ = + |</span></span><br><span class="line"><span class="string">|        o + . o .|</span></span><br><span class="line"><span class="string">|         + o .   |</span></span><br><span class="line"><span class="string">|        . ..o    |</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure></p>
-<p><font color="#ff00"><strong>这时候注意一下提示代码中，我标第1、2行的部分：</strong></font><br>写的是你的SSH文件已经在[c盘&gt;用户&gt;自己的用户名&gt;.ssh]目录下生成好了。<br>你需根据上方的路径要找到并并用记事本打开 id_rsa.pub文件，并复制里面的内容</p>
+<font color="#ff00"><strong>这时候注意一下提示代码中，我标第1、2行的部分：</strong></font>
+
+<p>写的是你的SSH文件已经在[c盘&gt;用户&gt;自己的用户名&gt;.ssh]目录下生成好了。<br>你需根据上方的路径要找到并并用记事本打开 id_rsa.pub文件，并复制里面的内容</p>
 <p><strong>接下来打开GitHub官网</strong>，进入你账号的个人设置，在个人设置右侧菜单中找到SSH Keys点击，点击ADD SSH key。<br>title可以随便写，将刚才复制的内容粘贴到Key框中，点击ADD Key 即添加了SSH登录。</p>
 <p>这时你可以使用Git测试你的SSH是否配置成功<br>输入：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
-<p>如果显示：</p>
-<pre><code>Hi username! You&apos;ve successfully authenticated, but GitHub does not
-provide shell access.
-</code></pre><p>那么恭喜你，SSH配置完成！</p>
+<p>如果显示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You<span class="string">'ve successfully authenticated, but GitHub does not</span></span><br><span class="line"><span class="string">provide shell access.</span></span><br></pre></td></tr></table></figure></p>
+<p>那么恭喜你，SSH配置完成！</p>
 <h2 id="4-配置一下Git"><a href="#4-配置一下Git" class="headerlink" title="4. 配置一下Git"></a>4. 配置一下Git</h2><p>我们实际上还没有在Git中添加你的账号信息，我们应该添加一下<br>输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"username"</span></span><br><span class="line">git config --global user.email <span class="string">"email"</span></span><br></pre></td></tr></table></figure></p>
-<p><font color="#ff00"><strong>※username中填入你的账户名，email中填入你的账户邮箱</strong></font><br>输入git config –list如果看到了你填入的信息，那么信息配置成功</p>
+<font color="#ff00"><strong>※username中填入你的账户名，email中填入你的账户邮箱</strong></font>
+
+<p>输入git config –list如果看到了你填入的信息，那么信息配置成功</p>
 <h2 id="5-发布网站到GitHub"><a href="#5-发布网站到GitHub" class="headerlink" title="5. 发布网站到GitHub"></a>5. 发布网站到GitHub</h2><p>接下来我们将把刚生成的网站发布到你的库中<br>首先，打开你建立的Blog文件夹中的_config.yml文件,在底部找到下面的位置<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span> </span><br><span class="line"><span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">repo:</span> <span class="string">git@github.com:MyGithub/MyGithub.github.io</span></span><br></pre></td></tr></table></figure></p>
-<p>你将填写type和repo部分：<br>如上面绿字（※将repo部分中的MyGithub改成你的账户名）</p>
-<p>在Git中输入如下指令：(需要在你网站目录下输入该指令)<br>指向目录使用cd 你的网站文件夹路径<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>好，至此你已经将网站上传至你的账户库中<br>你现在可以访问 <a href="http://MyGithub.github.io" target="_blank" rel="noopener">http://MyGithub.github.io</a> 来看到你上传的网站了</p>
+<p>你将填写type和repo部分：<br>如上面黄字<font color="#ff00">（※将repo部分中的MyGithub改成你的账户名）</font></p>
+<p><strong>接下来发布网页到Git:</strong><br>在Git中输入如下指令：(需要在你网站目录下输入该指令)</p>
+<font style="font-size: x-small;">指向目录使用cd 你的网站文件夹路径</font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>好，至此你已经将网站上传至你的账户库中<br>你现在可以访问 <a href="http://MyGithub.github.io" target="_blank" rel="noopener">http://MyGithub.github.io</a> 来看到你上传的网站了<br><em style="color:#ff0000">※MyGithub改成你的账户名</em></p>
 <blockquote>
 <p>相关资料：</p>
 <blockquote>
