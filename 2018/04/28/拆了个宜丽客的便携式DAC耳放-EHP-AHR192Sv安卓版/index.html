@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://img.mydigit.net/Mon_1804/88_1279775_6fa296164d69ea6.jpg?262">
 <meta property="og:image" content="http://img.mydigit.net/Mon_1804/88_1279775_a5a2f27d5b3eee3.jpg?258">
 <meta property="og:image" content="http://img.mydigit.net/Mon_1804/88_1279775_2a3d7c0cb9a370a.jpg?327">
-<meta property="og:updated_time" content="2018-04-30T07:02:29.710Z">
+<meta property="og:updated_time" content="2018-04-30T07:02:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拆了个宜丽客的便携式DAC耳放 EHP-AHR192Sv安卓版">
 <meta name="twitter:description" content="因为手机没有耳机插口，最近一直在用蓝牙音频接收器来使用耳机，虽然已经是蓝牙4.2的了，总还是感觉音质不够好，一般的转接线又都是渣渣音质，遂想买个OTG耳放，音质应该会有所提升。最后看上了便携式解码耳放，就闲鱼买了一个宜丽客（ELECOM）的便携式解码耳放 EHP-AHR192Sv，带解码，还有AKM的功放，也就一百多大洋，在手机上岂不是美滋滋？？">
@@ -72,11 +72,11 @@
 <div class="overlay" style="background: #ffffff url(/img/head-backimg.jpg);background-size:100%"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
-		<a href="" class="profilepic">
+		<a href="http://www.tobytao.com/" class="profilepic">
 			<img src="/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">Tao.</a></h1>
+		  <h1 class="header-author"><a href="http://www.tobytao.com/">Tao.</a></h1>
 		</hgroup>
 		
 		<!-- 这一段是网页侧边分类菜单“主页”“建站” -->
@@ -100,11 +100,11 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">小记录本</a>
+    			<a q-on="click: openSlider(e, 'meview')" href="javascript:void(0)">记事本</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'meweibo')" href="javascript:void(0)">微博</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -446,11 +446,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
         
       
-      <li style="width: 25%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">小记录本</a></li>
+      <li style="width: 25%" q-on="click: openSlider(e, 'meview')"><a href="javascript:void(0)" q-class="active:meview">记事本</a></li>
       
         
       
-      <li style="width: 25%" q-on="click: openSlider(e, 'meweibo')"><a href="javascript:void(0)" q-class="active:meweibo">微博</a></li>
+      <li style="width: 25%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -471,26 +471,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">破解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3DS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游戏机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">维护</a>
               </li>
              
@@ -508,6 +488,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">主题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">3DS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">游戏机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,11 +606,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   		
     	</section>
     
+    <!-- 自己加上的微博模块 -->
+    
+    	<section class="tools-section tools-section-me" q-show="meview">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;iframe width=&#34;100%&#34; height=&#34;100%&#34; class=&#34;share_self&#34;  frameborder=&#34;0&#34; scrolling=&#34;no&#34; src=&#34;http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=800&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=4&amp;isTitle=0&amp;noborder=1&amp;isWeibo=1&amp;isFans=0&amp;uid=1309787644&amp;verifier=22b45b00&amp;colors=d6f3f7,ffffff,666666,0082cb,ecfbfd&amp;dpc=1&#34;&gt;&lt;/iframe&gt;</div>
+  	  	
+    	</section>
+    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;iframe width=&#34;100%&#34; height=&#34;100%&#34; class=&#34;share_self&#34;  frameborder=&#34;0&#34; scrolling=&#34;no&#34; src=&#34;http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=800&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=4&amp;isTitle=0&amp;noborder=1&amp;isWeibo=1&amp;isFans=0&amp;uid=1309787644&amp;verifier=22b45b00&amp;colors=d6f3f7,ffffff,666666,0082cb,ecfbfd&amp;dpc=1&#34;&gt;&lt;/iframe&gt;</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;font&gt;&amp;emsp;&amp;emsp;&amp;emsp;还只是一个大一新生&lt;br/&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;请多多关照&lt;br/&gt;如果有什么技术上的错误还请指出&lt;br/&gt;希望能和大大们成为朋友ヽ(✿ﾟ▽ﾟ)ノ&lt;br/&gt; &lt;br/&gt; &lt;br/&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;[这是腿]_(:з」∠)_ &lt;br/&gt; &lt;br/&gt; &lt;br/&gt;&amp;nbsp;&amp;nbsp;抱大腿！&amp;nbsp;大佬！牛逼！！ &amp;nbsp; 我带路！&lt;br/&gt;　／　　　/　　　｜　　　　\&lt;br/&gt;ﾟ ∀ﾟ)ノﾟ ∀ﾟ)ノﾟ ∀ﾟ)ノ　\( ﾟ∀ﾟ｜</div>
   	  	
     	</section>
     
