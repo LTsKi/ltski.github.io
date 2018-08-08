@@ -10,20 +10,20 @@
   <link rel="dns-prefetch" href="http://www.tobytao.com">
   <title>Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计 | Tao.的博客小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成品大概是这样子的：这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据） 当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可流程是：">
+  <meta name="description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成后大概是这样子的： 这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据） 当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可流程是">
 <meta name="keywords" content="编程,C#,单片机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计">
 <meta property="og:url" content="http://www.tobytao.com/2018/07/20/Winfirm图像传输上位机的设计/index.html">
 <meta property="og:site_name" content="Tao.的博客小站">
-<meta property="og:description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成品大概是这样子的：这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据） 当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可流程是：">
+<meta property="og:description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成后大概是这样子的： 这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据） 当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可流程是">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2018/08/08/5b6ac229999aa.png">
 <meta property="og:image" content="https://i.loli.net/2018/08/08/5b6ac2299b04c.png">
-<meta property="og:updated_time" content="2018-08-08T10:18:00.074Z">
+<meta property="og:updated_time" content="2018-08-08T10:22:46.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计">
-<meta name="twitter:description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成品大概是这样子的：这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据） 当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可流程是：">
+<meta name="twitter:description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成后大概是这样子的： 这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据） 当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可流程是">
 <meta name="twitter:image" content="https://i.loli.net/2018/08/08/5b6ac229999aa.png">
   
     <link rel="alternative" href="/atom.xml" title="Tao.的博客小站" type="application/atom+xml">
@@ -202,7 +202,8 @@
         <blockquote>
 <p>飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。<br>技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。</p>
 </blockquote>
-<p>完成品大概是这样子的：<br><img src="https://i.loli.net/2018/08/08/5b6ac229999aa.png" alt="SCFM0.png" title="SCFM0.png" width="500"><br>这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据）</p>
+<p>完成后大概是这样子的：</p>
+<p><img src="https://i.loli.net/2018/08/08/5b6ac229999aa.png" alt="SCFM0.png" title="SCFM0.png" width="500"><br>这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据）</p>
 <p>当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可<br>流程是：<br>新建一个winfrom工程–&gt;添加串口通讯相关代码–&gt;在界面设计中添加相关设置选项–&gt;添加一个richbox–&gt;添加接收转换相关代码–&gt;进行测试–&gt;测试成功–&gt;添加一个picturebox和相关代码–&gt;添加数据导入导出–&gt;完成</p>
 <p>Windows会为蓝牙模块虚拟一个COM口，设置好蓝牙模块，并进行配对就可以在蓝牙设置中看到COM口了（我使用的是HC-05），连接COM口即与蓝牙模块进行通讯。<br><img src="https://i.loli.net/2018/08/08/5b6ac2299b04c.png" alt="未命名图片.png" title="未命名图片.png" width="500"></p>
 <h2 id="下面贴相关代码，底下贴工程文件。"><a href="#下面贴相关代码，底下贴工程文件。" class="headerlink" title="下面贴相关代码，底下贴工程文件。"></a>下面贴相关代码，底下贴工程文件。</h2><h5 id="串口通讯初始化："><a href="#串口通讯初始化：" class="headerlink" title="串口通讯初始化："></a>串口通讯初始化：</h5><p><strong>需要(using System.IO.Ports;)</strong><br><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">serialPort1.DataReceived += sriaerialPort1_DataReceived;</span><br><span class="line">           <span class="comment">//蓝牙端口信息初始化</span></span><br><span class="line">           serialPort1.ReceivedBytesThreshold = <span class="number">1</span>;</span><br><span class="line">           serialPort1.BaudRate = <span class="number">115200</span>;</span><br><span class="line">           serialPort1.PortName = <span class="string">"COM1"</span>;</span><br><span class="line">           serialPort1.Parity = Parity.Even;</span><br><span class="line">           serialPort1.DataBits = <span class="number">8</span>;</span><br><span class="line">           serialPort1.StopBits = StopBits.One;</span><br></pre></td></tr></table></figure></p>
@@ -518,6 +519,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
              
@@ -530,23 +539,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ACM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
+                <a href="javascript:void(0)" class="js-tag color3">维护</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,11 +555,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">维护</a>
+                <a href="javascript:void(0)" class="js-tag color3">主题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主题</a>
+                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ACM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
