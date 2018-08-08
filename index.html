@@ -176,6 +176,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-腾讯桌面整理-DeskGo新版本硬件加速关闭方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/08/腾讯桌面整理-DeskGo新版本硬件加速关闭方法/">腾讯桌面整理-DeskGo新版本硬件加速关闭方法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/08/腾讯桌面整理-DeskGo新版本硬件加速关闭方法/" class="archive-article-date">
+  	<time datetime="2018-08-08T08:32:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>腾讯的桌面整理DeskGo，跟其他猎豹轻桌面，或是Fences一样，都有着不错的桌面美化整理效果，并且DeskGo免费且没广告，有独立的安装版本<br>但DeskGo由于使用了显卡硬件加速，会强制使用独立显卡进行加速，本来没什么，但是对于笔记本用户就有点难受了，由于使用了独立显卡进行硬件加速，导致独立显卡一直保持开启状态，笔记本的风扇就会一直处于较高转速，并且温度还会升高。原因全在于开启了独立显卡<br>亲测使用显卡设置进行强行设置集成显卡是没用的<br>那么如何关闭DeskGo呢<br>客服给了一个reg文件，修改注册表来进行解决<br>
+        
+          <a class="article-more-a" href="/2018/08/08/腾讯桌面整理-DeskGo新版本硬件加速关闭方法/#more">╰( ´・ω・)つ──&gt;&gt;more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">软件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/08/腾讯桌面整理-DeskGo新版本硬件加速关闭方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Winfirm图像传输上位机的设计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -183,7 +263,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/20/Winfirm图像传输上位机的设计/">Winfirm程序 相关之串口通讯+蓝牙模块+图像传输上位机的设计</a>
+      <a class="article-title" href="/2018/07/20/Winfirm图像传输上位机的设计/">Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计</a>
     </h1>
   
 
@@ -196,10 +276,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <font color="#ff0000">&emsp;&emsp;&emsp;【挖坑】正在写作中ing….<br></font>
-        
-          <a class="article-more-a" href="/2018/07/20/Winfirm图像传输上位机的设计/#more">╰( ´・ω・)つ──&gt;&gt;more >></a>
-        
+        <blockquote>
+<p>飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。<br>技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。</p>
+</blockquote>
+<p>完成品大概是这样子的：<br><img src="https://i.loli.net/2018/08/08/5b6ac229999aa.png" alt="SCFM0.png" title="SCFM0.png" width="500"><br>这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据）</p>
+<p>当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可<br>流程是：<br>新建一个winfrom工程–&gt;添加串口通讯相关代码–&gt;在界面设计中添加相关设置选项–&gt;添加一个richbox–&gt;添加接收转换相关代码–&gt;进行测试–&gt;测试成功–&gt;添加一个picturebox和相关代码–&gt;添加数据导入导出–&gt;完成</p>
+<p>Windows会为蓝牙模块虚拟一个COM口，设置好蓝牙模块，并进行配对就可以在蓝牙设置中看到COM口了（我使用的是HC-05），连接COM口即与蓝牙模块进行通讯。<br><img src="https://i.loli.net/2018/08/08/5b6ac2299b04c.png" alt="未命名图片.png" title="未命名图片.png" width="500"></p>
+<h2 id="下面贴相关代码，底下贴工程文件。"><a href="#下面贴相关代码，底下贴工程文件。" class="headerlink" title="下面贴相关代码，底下贴工程文件。"></a>下面贴相关代码，底下贴工程文件。</h2><h5 id="串口通讯初始化："><a href="#串口通讯初始化：" class="headerlink" title="串口通讯初始化："></a>串口通讯初始化：</h5><p><strong>需要(using System.IO.Ports;)</strong><br><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">serialPort1.DataReceived += sriaerialPort1_DataReceived;</span><br><span class="line">           <span class="comment">//蓝牙端口信息初始化</span></span><br><span class="line">           serialPort1.ReceivedBytesThreshold = <span class="number">1</span>;</span><br><span class="line">           serialPort1.BaudRate = <span class="number">115200</span>;</span><br><span class="line">           serialPort1.PortName = <span class="string">"COM1"</span>;</span><br><span class="line">           serialPort1.Parity = Parity.Even;</span><br><span class="line">           serialPort1.DataBits = <span class="number">8</span>;</span><br><span class="line">           serialPort1.StopBits = StopBits.One;</span><br></pre></td></tr></table></figure></p>
+<h5 id="打开串口通讯：（蓝牙连接按钮）"><a href="#打开串口通讯：（蓝牙连接按钮）" class="headerlink" title="打开串口通讯：（蓝牙连接按钮）"></a>打开串口通讯：（蓝牙连接按钮）</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span><span class="params">(object sender, EventArgs e)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (button1.Text == <span class="string">"打开串口"</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">try</span></span><br><span class="line">                &#123;</span><br><span class="line">                    serialPort1.Open();</span><br><span class="line">                    button1.Text = <span class="string">"关闭串口"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">                &#123;</span><br><span class="line">                    MessageBox.Show(ex.Message);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                serialPort1.Close();</span><br><span class="line">                button1.Text = <span class="string">"打开串口"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="发送数据给模块："><a href="#发送数据给模块：" class="headerlink" title="发送数据给模块："></a>发送数据给模块：</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button2_Click</span><span class="params">(object sender, EventArgs e)</span></span></span><br><span class="line"><span class="function">       </span>&#123;</span><br><span class="line">           <span class="built_in">string</span> serialStringTemp = <span class="keyword">this</span>.textBox1.Text;</span><br><span class="line">           <span class="keyword">this</span>.serialPort1.WriteLine(serialStringTemp);</span><br><span class="line">           Thread.Sleep(<span class="number">150</span>);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="接收蓝牙数据事件，并将接收到的展示于richbox"><a href="#接收蓝牙数据事件，并将接收到的展示于richbox" class="headerlink" title="接收蓝牙数据事件，并将接收到的展示于richbox:"></a>接收蓝牙数据事件，并将接收到的展示于richbox:</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sriaerialPort1_DataReceived</span><span class="params">(object sender,System.IO.Ports.SerialDataReceivedEventArgs e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> seriaReadString = serialPort1.ReadExisting();</span><br><span class="line">    <span class="keyword">this</span>.richTextBox1.Invoke(<span class="keyword">new</span> MethodInvoker(delegate &#123; <span class="keyword">this</span>.richTextBox1.AppendText(seriaReadString); &#125;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="picturebox绘图相关"><a href="#picturebox绘图相关" class="headerlink" title="picturebox绘图相关:"></a>picturebox绘图相关:</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">huitu</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> i, j, k = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">119</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">188</span>; j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//Color newColorxy = Color.FromArgb(richTextBox1.Text[k], richTextBox1.Text[k], richTextBox1.Text[k]);</span></span><br><span class="line">                    <span class="comment">//Towing.SetPixel(Row, i * 2, newColorH);</span></span><br><span class="line">                    <span class="keyword">if</span> (richTextBox1.Text[k] == <span class="string">'1'</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        Towimg.SetPixel(j, i, Color.FromArgb(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        Towimg.SetPixel(j, i, Color.FromArgb(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                    k++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//this.richTextBox1.Text = this.richTextBox1.Text.Insert(k, "\r\n");</span></span><br><span class="line">                <span class="comment">//k++;</span></span><br><span class="line">            &#125;</span><br><span class="line">            pictureBox1.Image = Towimg;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><p><a href="https://blog.csdn.net/u011964923/article/details/50967351" target="_blank" rel="noopener">https://blog.csdn.net/u011964923/article/details/50967351</a><br><a href="https://www.cnblogs.com/zjutlitao/p/3886826.html" target="_blank" rel="noopener">https://www.cnblogs.com/zjutlitao/p/3886826.html</a></p>
+<h4 id="工程文件："><a href="#工程文件：" class="headerlink" title="工程文件："></a>工程文件：</h4><p>链接：<a href="https://pan.baidu.com/s/1L10ITlS2f8tBxw9S2TqdGQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1L10ITlS2f8tBxw9S2TqdGQ</a> 密码：wx8p</p>
+
       
 
       
@@ -811,10 +901,6 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">维护</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建站</a>
         		</li>
       		 
@@ -824,6 +910,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">维护</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -916,6 +1006,10 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">服务器</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建站</a>
         		</li>
       		 
@@ -925,10 +1019,6 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">服务器</a>
         		</li>
       		
 		</ul>
@@ -979,71 +1069,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/24/hello-world/" class="archive-article-date">
-  	<time datetime="2018-01-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br>
-        
-          <a class="article-more-a" href="/2018/01/24/hello-world/#more">╰( ´・ω・)つ──&gt;&gt;more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/24/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1167,38 +1196,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">维护</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">建站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
@@ -1232,6 +1229,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">建站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">维护</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">主题</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,20 +8,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.tobytao.com">
-  <title>Winfirm程序 相关之串口通讯+蓝牙模块+图像传输上位机的设计 | Tao.的博客小站</title>
+  <title>Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计 | Tao.的博客小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;&amp;emsp;【挖坑】正在写作中ing….">
+  <meta name="description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成品大概是这样子的：这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据） 当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可流程是：">
 <meta name="keywords" content="编程,C#,单片机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Winfirm程序 相关之串口通讯+蓝牙模块+图像传输上位机的设计">
+<meta property="og:title" content="Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计">
 <meta property="og:url" content="http://www.tobytao.com/2018/07/20/Winfirm图像传输上位机的设计/index.html">
 <meta property="og:site_name" content="Tao.的博客小站">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;&amp;emsp;【挖坑】正在写作中ing….">
+<meta property="og:description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成品大概是这样子的：这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据） 当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可流程是：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-20T12:27:27.754Z">
+<meta property="og:image" content="https://i.loli.net/2018/08/08/5b6ac229999aa.png">
+<meta property="og:image" content="https://i.loli.net/2018/08/08/5b6ac2299b04c.png">
+<meta property="og:updated_time" content="2018-08-08T10:18:00.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Winfirm程序 相关之串口通讯+蓝牙模块+图像传输上位机的设计">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;&amp;emsp;【挖坑】正在写作中ing….">
+<meta name="twitter:title" content="Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计">
+<meta name="twitter:description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成品大概是这样子的：这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据） 当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可流程是：">
+<meta name="twitter:image" content="https://i.loli.net/2018/08/08/5b6ac229999aa.png">
   
     <link rel="alternative" href="/atom.xml" title="Tao.的博客小站" type="application/atom+xml">
   
@@ -183,7 +186,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Winfirm程序 相关之串口通讯+蓝牙模块+图像传输上位机的设计
+      Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计
     </h1>
   
 
@@ -196,9 +199,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <font color="#ff0000">&emsp;&emsp;&emsp;【挖坑】正在写作中ing….<br></font>
+        <blockquote>
+<p>飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。<br>技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。</p>
+</blockquote>
+<p>完成品大概是这样子的：<br><img src="https://i.loli.net/2018/08/08/5b6ac229999aa.png" alt="SCFM0.png" title="SCFM0.png" width="500"><br>这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据）</p>
+<p>当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可<br>流程是：<br>新建一个winfrom工程–&gt;添加串口通讯相关代码–&gt;在界面设计中添加相关设置选项–&gt;添加一个richbox–&gt;添加接收转换相关代码–&gt;进行测试–&gt;测试成功–&gt;添加一个picturebox和相关代码–&gt;添加数据导入导出–&gt;完成</p>
+<p>Windows会为蓝牙模块虚拟一个COM口，设置好蓝牙模块，并进行配对就可以在蓝牙设置中看到COM口了（我使用的是HC-05），连接COM口即与蓝牙模块进行通讯。<br><img src="https://i.loli.net/2018/08/08/5b6ac2299b04c.png" alt="未命名图片.png" title="未命名图片.png" width="500"></p>
+<h2 id="下面贴相关代码，底下贴工程文件。"><a href="#下面贴相关代码，底下贴工程文件。" class="headerlink" title="下面贴相关代码，底下贴工程文件。"></a>下面贴相关代码，底下贴工程文件。</h2><h5 id="串口通讯初始化："><a href="#串口通讯初始化：" class="headerlink" title="串口通讯初始化："></a>串口通讯初始化：</h5><p><strong>需要(using System.IO.Ports;)</strong><br><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">serialPort1.DataReceived += sriaerialPort1_DataReceived;</span><br><span class="line">           <span class="comment">//蓝牙端口信息初始化</span></span><br><span class="line">           serialPort1.ReceivedBytesThreshold = <span class="number">1</span>;</span><br><span class="line">           serialPort1.BaudRate = <span class="number">115200</span>;</span><br><span class="line">           serialPort1.PortName = <span class="string">"COM1"</span>;</span><br><span class="line">           serialPort1.Parity = Parity.Even;</span><br><span class="line">           serialPort1.DataBits = <span class="number">8</span>;</span><br><span class="line">           serialPort1.StopBits = StopBits.One;</span><br></pre></td></tr></table></figure></p>
+<h5 id="打开串口通讯：（蓝牙连接按钮）"><a href="#打开串口通讯：（蓝牙连接按钮）" class="headerlink" title="打开串口通讯：（蓝牙连接按钮）"></a>打开串口通讯：（蓝牙连接按钮）</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span><span class="params">(object sender, EventArgs e)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (button1.Text == <span class="string">"打开串口"</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">try</span></span><br><span class="line">                &#123;</span><br><span class="line">                    serialPort1.Open();</span><br><span class="line">                    button1.Text = <span class="string">"关闭串口"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">                &#123;</span><br><span class="line">                    MessageBox.Show(ex.Message);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                serialPort1.Close();</span><br><span class="line">                button1.Text = <span class="string">"打开串口"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="发送数据给模块："><a href="#发送数据给模块：" class="headerlink" title="发送数据给模块："></a>发送数据给模块：</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button2_Click</span><span class="params">(object sender, EventArgs e)</span></span></span><br><span class="line"><span class="function">       </span>&#123;</span><br><span class="line">           <span class="built_in">string</span> serialStringTemp = <span class="keyword">this</span>.textBox1.Text;</span><br><span class="line">           <span class="keyword">this</span>.serialPort1.WriteLine(serialStringTemp);</span><br><span class="line">           Thread.Sleep(<span class="number">150</span>);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="接收蓝牙数据事件，并将接收到的展示于richbox"><a href="#接收蓝牙数据事件，并将接收到的展示于richbox" class="headerlink" title="接收蓝牙数据事件，并将接收到的展示于richbox:"></a>接收蓝牙数据事件，并将接收到的展示于richbox:</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sriaerialPort1_DataReceived</span><span class="params">(object sender,System.IO.Ports.SerialDataReceivedEventArgs e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> seriaReadString = serialPort1.ReadExisting();</span><br><span class="line">    <span class="keyword">this</span>.richTextBox1.Invoke(<span class="keyword">new</span> MethodInvoker(delegate &#123; <span class="keyword">this</span>.richTextBox1.AppendText(seriaReadString); &#125;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="picturebox绘图相关"><a href="#picturebox绘图相关" class="headerlink" title="picturebox绘图相关:"></a>picturebox绘图相关:</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">huitu</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> i, j, k = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">119</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">188</span>; j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//Color newColorxy = Color.FromArgb(richTextBox1.Text[k], richTextBox1.Text[k], richTextBox1.Text[k]);</span></span><br><span class="line">                    <span class="comment">//Towing.SetPixel(Row, i * 2, newColorH);</span></span><br><span class="line">                    <span class="keyword">if</span> (richTextBox1.Text[k] == <span class="string">'1'</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        Towimg.SetPixel(j, i, Color.FromArgb(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        Towimg.SetPixel(j, i, Color.FromArgb(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                    k++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//this.richTextBox1.Text = this.richTextBox1.Text.Insert(k, "\r\n");</span></span><br><span class="line">                <span class="comment">//k++;</span></span><br><span class="line">            &#125;</span><br><span class="line">            pictureBox1.Image = Towimg;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><p><a href="https://blog.csdn.net/u011964923/article/details/50967351" target="_blank" rel="noopener">https://blog.csdn.net/u011964923/article/details/50967351</a><br><a href="https://www.cnblogs.com/zjutlitao/p/3886826.html" target="_blank" rel="noopener">https://www.cnblogs.com/zjutlitao/p/3886826.html</a></p>
+<h4 id="工程文件："><a href="#工程文件：" class="headerlink" title="工程文件："></a>工程文件：</h4><p>链接：<a href="https://pan.baidu.com/s/1L10ITlS2f8tBxw9S2TqdGQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1L10ITlS2f8tBxw9S2TqdGQ</a> 密码：wx8p</p>
 
-<a id="more"></a>
       
 
       
@@ -292,6 +306,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/08/08/腾讯桌面整理-DeskGo新版本硬件加速关闭方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          腾讯桌面整理-DeskGo新版本硬件加速关闭方法
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/05/24/第一次参加-ACM-ICPC-2018陕西邀请赛手记/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">第一次参加 ACM-ICPC 2018陕西邀请赛手记</div>
@@ -313,6 +336,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面贴相关代码，底下贴工程文件。"><span class="toc-number">1.</span> <span class="toc-text">下面贴相关代码，底下贴工程文件。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#串口通讯初始化："><span class="toc-number">1.0.0.1.</span> <span class="toc-text">串口通讯初始化：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#打开串口通讯：（蓝牙连接按钮）"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">打开串口通讯：（蓝牙连接按钮）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#发送数据给模块："><span class="toc-number">1.0.0.3.</span> <span class="toc-text">发送数据给模块：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#接收蓝牙数据事件，并将接收到的展示于richbox"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">接收蓝牙数据事件，并将接收到的展示于richbox:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#picturebox绘图相关"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">picturebox绘图相关:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料："><span class="toc-number">1.0.1.</span> <span class="toc-text">参考资料：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工程文件："><span class="toc-number">1.0.2.</span> <span class="toc-text">工程文件：</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -466,38 +502,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">维护</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">建站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
@@ -531,6 +535,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">建站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">维护</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">主题</a>
               </li>
              
               <li class="article-tag-list-item">
