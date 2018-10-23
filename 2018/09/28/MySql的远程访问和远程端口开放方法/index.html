@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Tao.的博客小站">
 <meta property="og:description" content="在远程服务器上，数据库有时候是需要进行远程访问的，但默认Mysql没开启授权远程访问，相关的端口在服务器上可能也没有开放，所以，要进行远程访问就要解决这些问题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-08T05:45:23.957Z">
+<meta property="og:updated_time" content="2018-10-08T05:45:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql的远程访问和远程端口开放方法">
 <meta name="twitter:description" content="在远程服务器上，数据库有时候是需要进行远程访问的，但默认Mysql没开启授权远程访问，相关的端口在服务器上可能也没有开放，所以，要进行远程访问就要解决这些问题">
@@ -203,7 +203,7 @@
 <p><strong>[FLUSH PRIVILEGES]是刷新用户权限信息的指令</strong></p>
 <h2 id="二、开启服务器的3306端口（我这是CentOS系统的示例）"><a href="#二、开启服务器的3306端口（我这是CentOS系统的示例）" class="headerlink" title="二、开启服务器的3306端口（我这是CentOS系统的示例）"></a>二、开启服务器的3306端口（我这是CentOS系统的示例）</h2><p>CentOS默认使用了firewall作为防火墙，为了方便，我们改成iptables防火墙</p>
 <h4 id="1、关闭firewall："><a href="#1、关闭firewall：" class="headerlink" title="1、关闭firewall："></a>1、关闭firewall：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service</span><br><span class="line">systemctl mask firewalld.service</span><br></pre></td></tr></table></figure>
-<h4 id="2、安装iptables防火墙"><a href="#2、安装iptables防火墙" class="headerlink" title="2、安装iptables防火墙"></a>2、安装iptables防火墙</h4><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> iptables-services -y</span><br></pre></td></tr></table></figure>
+<h4 id="2、安装iptables防火墙"><a href="#2、安装iptables防火墙" class="headerlink" title="2、安装iptables防火墙"></a>2、安装iptables防火墙</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install iptables-services -y</span><br></pre></td></tr></table></figure>
 <h4 id="3-启动设置防火墙"><a href="#3-启动设置防火墙" class="headerlink" title="3.启动设置防火墙"></a>3.启动设置防火墙</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; systemctl <span class="built_in">enable</span> iptables</span><br><span class="line">&gt; systemctl start iptables</span><br></pre></td></tr></table></figure>
 <h4 id="4-查看防火墙状态"><a href="#4-查看防火墙状态" class="headerlink" title="4.查看防火墙状态"></a>4.查看防火墙状态</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status iptables</span><br></pre></td></tr></table></figure>
 <h4 id="5-开放443端口-HTTPS"><a href="#5-开放443端口-HTTPS" class="headerlink" title="5.开放443端口(HTTPS)"></a>5.开放443端口(HTTPS)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 3306 -j ACCEPT</span><br></pre></td></tr></table></figure>
@@ -387,7 +387,7 @@ gitment.render('gitment-ctn')
 				
     </div>
 	</div>
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	<script async src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js">
 	</script>
 </footer>
     </div>

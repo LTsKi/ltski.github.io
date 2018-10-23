@@ -19,7 +19,7 @@
 <meta property="og:description" content="腾讯的桌面整理DeskGo，跟其他猎豹轻桌面，或是Fences一样，都有着不错的桌面美化整理效果，并且DeskGo免费且没广告，有独立的安装版本但DeskGo由于使用了显卡硬件加速，会强制使用独立显卡进行加速，本来没什么，但是对于笔记本用户就有点难受了，由于使用了独立显卡进行硬件加速，导致独立显卡一直保持开启状态，笔记本的风扇就会一直处于较高转速，并且温度还会升高。原因全在于开启了独立显卡亲测使用">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2018/08/08/5b6ab0eb75ba1.png">
-<meta property="og:updated_time" content="2018-08-08T09:07:23.000Z">
+<meta property="og:updated_time" content="2018-08-08T09:07:23.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="腾讯桌面整理-DeskGo新版本硬件加速关闭方法">
 <meta name="twitter:description" content="腾讯的桌面整理DeskGo，跟其他猎豹轻桌面，或是Fences一样，都有着不错的桌面美化整理效果，并且DeskGo免费且没广告，有独立的安装版本但DeskGo由于使用了显卡硬件加速，会强制使用独立显卡进行加速，本来没什么，但是对于笔记本用户就有点难受了，由于使用了独立显卡进行硬件加速，导致独立显卡一直保持开启状态，笔记本的风扇就会一直处于较高转速，并且温度还会升高。原因全在于开启了独立显卡亲测使用">
@@ -198,7 +198,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>腾讯的桌面整理DeskGo，跟其他猎豹轻桌面，或是Fences一样，都有着不错的桌面美化整理效果，并且DeskGo免费且没广告，有独立的安装版本<br>但DeskGo由于使用了显卡硬件加速，会强制使用独立显卡进行加速，本来没什么，但是对于笔记本用户就有点难受了，由于使用了独立显卡进行硬件加速，导致独立显卡一直保持开启状态，笔记本的风扇就会一直处于较高转速，并且温度还会升高。原因全在于开启了独立显卡<br>亲测使用显卡设置进行强行设置集成显卡是没用的<br>那么如何关闭DeskGo呢<br>客服给了一个reg文件，修改注册表来进行解决<br><a id="more"></a><br>内容如下<br><figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5.00</span></span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Tencent\DeskGo]</span><br><span class="line"><span class="string">"HWAccDisabled"</span>=<span class="name">dword</span>:<span class="number">00000001</span></span><br></pre></td></tr></table></figure></p>
+        <p>腾讯的桌面整理DeskGo，跟其他猎豹轻桌面，或是Fences一样，都有着不错的桌面美化整理效果，并且DeskGo免费且没广告，有独立的安装版本<br>但DeskGo由于使用了显卡硬件加速，会强制使用独立显卡进行加速，本来没什么，但是对于笔记本用户就有点难受了，由于使用了独立显卡进行硬件加速，导致独立显卡一直保持开启状态，笔记本的风扇就会一直处于较高转速，并且温度还会升高。原因全在于开启了独立显卡<br>亲测使用显卡设置进行强行设置集成显卡是没用的<br>那么如何关闭DeskGo呢<br>客服给了一个reg文件，修改注册表来进行解决<br><a id="more"></a><br>内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\Software\Tencent\DeskGo]</span><br><span class="line">&quot;HWAccDisabled&quot;=dword:00000001</span><br></pre></td></tr></table></figure></p>
 <p>现阶段就是在注册表中添加一个键值就好了，添加后重启，就会发现，DeskGo关闭了硬件加速，显卡占用解除<br><img src="https://i.loli.net/2018/08/08/5b6ab0eb75ba1.png" alt="20180808165809.png"></p>
 
       
@@ -371,7 +371,7 @@ gitment.render('gitment-ctn')
 				
     </div>
 	</div>
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	<script async src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js">
 	</script>
 </footer>
     </div>
