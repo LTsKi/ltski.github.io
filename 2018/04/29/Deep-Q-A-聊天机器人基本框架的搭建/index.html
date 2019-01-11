@@ -7,27 +7,27 @@
   <meta name="baidu-site-verification" content="qvLAQ1wZhk" />
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://www.tobytao.com">
+  <link rel="dns-prefetch" href="http://hexo.itsukio.com">
   <title>Deep Q&amp;A 聊天机器人基本框架的搭建 | Tao.的博客小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;amp;A聊天机器人的基本框架，和示例模型的引入测试  参考：Deep Q&amp;amp;A 仓库 :https://github.com/Conchylicultor/DeepQA论文 :https://arxiv.org/pdf/1506.05869.pdf   第一步：将Deep Q&amp;amp;A下载到自己的硬盘">
 <meta name="keywords" content="深度学习,教程,搭建,DEEP Q&amp;A">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Deep Q&amp;A 聊天机器人基本框架的搭建">
-<meta property="og:url" content="http://www.tobytao.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/index.html">
+<meta property="og:url" content="http://hexo.itsukio.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/index.html">
 <meta property="og:site_name" content="Tao.的博客小站">
 <meta property="og:description" content="在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;amp;A聊天机器人的基本框架，和示例模型的引入测试  参考：Deep Q&amp;amp;A 仓库 :https://github.com/Conchylicultor/DeepQA论文 :https://arxiv.org/pdf/1506.05869.pdf   第一步：将Deep Q&amp;amp;A下载到自己的硬盘">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.tobytao.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/1.png">
-<meta property="og:image" content="http://www.tobytao.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/4.png">
-<meta property="og:image" content="http://www.tobytao.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/2.png">
-<meta property="og:image" content="http://www.tobytao.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/3.png">
-<meta property="og:image" content="http://www.tobytao.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/5.png">
+<meta property="og:image" content="http://hexo.itsukio.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/1.png">
+<meta property="og:image" content="http://hexo.itsukio.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/4.png">
+<meta property="og:image" content="http://hexo.itsukio.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/2.png">
+<meta property="og:image" content="http://hexo.itsukio.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/3.png">
+<meta property="og:image" content="http://hexo.itsukio.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/5.png">
 <meta property="og:updated_time" content="2018-06-05T04:01:49.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep Q&amp;A 聊天机器人基本框架的搭建">
 <meta name="twitter:description" content="在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;amp;A聊天机器人的基本框架，和示例模型的引入测试  参考：Deep Q&amp;amp;A 仓库 :https://github.com/Conchylicultor/DeepQA论文 :https://arxiv.org/pdf/1506.05869.pdf   第一步：将Deep Q&amp;amp;A下载到自己的硬盘">
-<meta name="twitter:image" content="http://www.tobytao.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/1.png">
+<meta name="twitter:image" content="http://hexo.itsukio.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Tao.的博客小站" type="application/atom+xml">
   
@@ -64,11 +64,11 @@
 <div class="overlay" style="background: #ffffff url(https://i.loli.net/2018/07/22/5b53ffaf350eb.jpg);background-size:100%"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
-		<a href="https://www.tobytao.com/" class="profilepic">
+		<a href="https://hexo.itsukio.com/" class="profilepic">
 			<img src="https://i.loli.net/2018/07/22/5b53f9a8614f3.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="https://www.tobytao.com/">Tao.</a></h1>
+		  <h1 class="header-author"><a href="https://hexo.itsukio.com/">Tao.</a></h1>
 		</hgroup>
 		
 		<!-- 这一段是网页侧边分类菜单“主页”“建站” -->
@@ -335,7 +335,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.tobytao.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://hexo.itsukio.com/2018/04/29/Deep-Q-A-聊天机器人基本框架的搭建/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -544,30 +544,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搭建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DEEP Q&A</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">维护</a>
               </li>
              
@@ -588,7 +564,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DEEP Q&A</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,6 +585,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,15 +612,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
             
             <div class="clearfix"></div>
