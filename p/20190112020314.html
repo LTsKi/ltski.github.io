@@ -19,7 +19,7 @@
 <meta property="og:description" content="永久链接我们在访问文章页面时，会发现默认的文章链接相当的长特别是使用中文作为标题的时候，分享给别人的链接满是中文链接的转义字符，非常不好看，但在HEXO官方文档中也只提供了一些参数可供修改您可以在  _config.yml  配置中调整网站的永久链接或者在每篇文章的  Front-matter  中指定。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/01/13/5c3a690856a46.png">
-<meta property="og:updated_time" content="2019-01-13T06:35:14.562Z">
+<meta property="og:updated_time" content="2019-01-13T07:17:16.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客进阶之文章链接—自定义永久链接">
 <meta name="twitter:description" content="永久链接我们在访问文章页面时，会发现默认的文章链接相当的长特别是使用中文作为标题的时候，分享给别人的链接满是中文链接的转义字符，非常不好看，但在HEXO官方文档中也只提供了一些参数可供修改您可以在  _config.yml  配置中调整网站的永久链接或者在每篇文章的  Front-matter  中指定。">
@@ -249,9 +249,9 @@
 </table>
 </blockquote>
 <p>但你会发现除了使用 <strong>year,month,day</strong>之外就剩文章名称，文章ID，文章分类了，让文章按照年月日做链接比如 <strong>2018010101(2018年1月1日第一篇文章)</strong> 这种链接基本没有办法生成，用 <strong>title</strong>属性就会变得又臭又长，<strong>文章ID</strong>也没有规律可循，怎么办呢？</p>
-<p>这时候翻到官方文档的下面，就会发现有个多语种支持，里面就提到一个参数 <strong>permalink:</strong>，当你在文章的头中加入这个参数，不得了，文章的链接就会变成你自定义的 <strong>permalink</strong>参数，但每次写文章都要自定义一下岂不是很麻烦？<br>我希望能够在我新建一个文章的时候 <strong>permalink:</strong>参数就可以帮我写好，或者我的文章链接能用文章创建的日期时间作为链接。</p>
-<h3 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h3><p>之后我尝试在新 <strong>建文章模板（scaddolds/post.md）</strong> 中加入 <strong>permalink</strong>参数，并定义参数为 <strong>year:month:day</strong>发现并没有什么作用，你会发现新建一篇文章之后，参数 <strong>year:month:day</strong>并没有被转换成你想要的，反而被当成字符串处理了。遂百度了一下如何解决看到很多的教程都提到了使用 <strong>hexo-addrlink</strong>插件来实现唯一链接，<a href="http://muyunyun.cn/posts/f55182c5/#%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%E5%94%AF%E4%B8%80%E5%8C%96" target="_blank" rel="noopener">教程链接</a>。<br> <strong>hexo-addrlink</strong>插件可以给每一篇文章通过文章标题（hexo中文章标题是不能重复的）生成唯一的编码，来实现链接唯一化。但是还是觉得这个插件生成的唯一代码太长了，也没有逻辑，我还是希望能够用时间和日期作为唯一链接。百度找啊找都没找到相关的教程，遂打开了 <strong>hexo-addrlink</strong>插件看一下是怎么实现的，这一看之下代码并不多，哎，萌生了自己也写一个类似插件的想法。</p>
-<h2 id="编写插件"><a href="#编写插件" class="headerlink" title="编写插件"></a>编写插件</h2><h3 id="怎么编写插件呢？"><a href="#怎么编写插件呢？" class="headerlink" title="怎么编写插件呢？"></a>怎么编写插件呢？</h3><p>关于 <strong>HEXO的插</strong>件编写教程，百度上能找到的太少了，还好，找到了一篇并且质量还不错的文章介绍了 <strong>HEXO插件</strong>的编写，<a href="https://blog.csdn.net/melordljm/article/details/51985157" target="_blank" rel="noopener">文章链接</a>。<br>之后就大题明白了插件的写法，但是如何获取每一篇文章的创建日期呢？<br>最后在 <strong>HEXO官方API文档</strong> 中找到了相关信息，<a href="https://hexo.io/zh-cn/api/posts" target="_blank" rel="noopener">API文档链接</a>,内容是这样的</p>
+<p>这时候翻到官方文档的下面，就会发现有个 <strong>多语种支持</strong>一栏，里面就提到一个参数 <strong>permalink:</strong>，当你在文章的头中加入这个参数，不得了，文章的链接就会变成你自定义的 <strong>permalink</strong>参数，但每次写文章都要自定义一下岂不是很麻烦？<br>我希望能够在我新建一个文章的时候 <strong>permalink:</strong>参数就可以帮我写好，或者我的文章链接能用文章创建的日期时间作为链接。</p>
+<h3 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h3><p>之后我尝试在新 <strong>建文章模板（scaddolds/post.md）</strong> 中加入 <strong>permalink</strong>参数，并定义参数为 <strong>year:month:day</strong>发现并没有什么作用，你会发现新建一篇文章之后，参数 <strong>year:month:day</strong>并没有被转换成你想要的，反而被当成字符串处理了。遂百度了一下如何解决看到很多的教程都提到了使用 <strong>hexo-addrlink</strong>插件来实现唯一链接<br><a href="http://muyunyun.cn/posts/f55182c5/#%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%E5%94%AF%E4%B8%80%E5%8C%96" target="_blank" rel="noopener">相关教程链接</a>。<br> <strong>hexo-addrlink</strong>插件可以给每一篇文章通过文章标题（hexo中文章标题是不能重复的）生成唯一的编码，来实现链接唯一化。但是还是觉得这个插件生成的唯一代码太长了，也没有逻辑，我还是希望能够用时间和日期作为唯一链接。百度找啊找都没找到相关的教程，遂打开了 <strong>hexo-addrlink</strong>插件看一下是怎么实现的，这一看之下代码并不多，哎，萌生了自己也写一个类似插件的想法。</p>
+<h2 id="编写插件"><a href="#编写插件" class="headerlink" title="编写插件"></a>编写插件</h2><h3 id="怎么编写插件呢？"><a href="#怎么编写插件呢？" class="headerlink" title="怎么编写插件呢？"></a>怎么编写插件呢？</h3><p>关于 <strong>HEXO的插</strong>件编写教程，百度上能找到的太少了，还好，找到了一篇并且质量还不错的文章介绍了 <strong>HEXO插件</strong>的编写<br><a href="https://blog.csdn.net/melordljm/article/details/51985157" target="_blank" rel="noopener">相关文章链接</a>。<br>之后就大题明白了插件的写法，但是如何获取每一篇文章的创建日期呢？<br>最后在 <strong>HEXO官方API文档</strong> 中找到了相关信息，<a href="https://hexo.io/zh-cn/api/posts" target="_blank" rel="noopener">API文档链接</a>,内容是这样的</p>
 <blockquote>
 <p>您可以在资料中指定文章的属性，除了以下属性之外，其他属性也会被加到 <strong>front-matter</strong> 中。</p>
 <table>
@@ -292,6 +292,14 @@
 <p>由于我给 <strong>data</strong>数据定的是 <strong>datelink</strong>，所以也要在HEXO配置文件 <strong>_config.yml</strong>中添加相关的参数：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">permalink: :datelink.html</span><br><span class="line">permalink_defaults:</span><br><span class="line">datelink:</span><br></pre></td></tr></table></figure></p>
 <p> <strong>permalink</strong>末尾加了 .<strong>html</strong>听说是可以有利于搜索引擎，就加上去了</p>
 <h3 id="测试成果"><a href="#测试成果" class="headerlink" title="测试成果"></a>测试成果</h3><p>运行 <strong>hexo server</strong>测试一波，很好，成功的使用了时间和日期作为文章的唯一链接啦！！！<br><img src="https://i.loli.net/2019/01/13/5c3a690856a46.png" alt="网址"><br>研究了一整天终究是没有白费，看来得去学一下 <strong>js/nodejs</strong>了</p>
+<h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><blockquote>
+<p><strong>format</strong>参数可以放在 <strong>_config.yml</strong>文件中，这样可以随时修改网址格式，只需要添加子参数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">datelink:</span><br><span class="line">  format:</span><br></pre></td></tr></table></figure></p>
+<p>只需访问 <strong>this.config.datelink.format</strong>变量即可获取到相应的参数，相信你已经知道怎么改了</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>所参考的文档和文章：<br>HEXO官方文档:<a href="https://hexo.io/zh-cn/docs/permalinks" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/permalinks</a><br>hexo进阶文章:<a href="http://muyunyun.cn/posts/f55182c5/#%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%E5%94%AF%E4%B8%80%E5%8C%96" target="_blank" rel="noopener">http://muyunyun.cn/posts/f55182c5/</a><br>插件编写教程文章:<a href="https://blog.csdn.net/melordljm/article/details/51985157" target="_blank" rel="noopener">https://blog.csdn.net/melordljm/article/details/51985157</a><br>HEXO-API:<a href="https://hexo.io/zh-cn/api/posts" target="_blank" rel="noopener">https://hexo.io/zh-cn/api/posts</a></p>
+</blockquote>
 
       
 
@@ -615,19 +623,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,6 +640,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">单片机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
