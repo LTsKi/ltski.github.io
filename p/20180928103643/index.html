@@ -8,22 +8,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hexo.itsukio.com">
-  <title>第一次参加 ACM-ICPC 2018陕西邀请赛手记 | ITsuKiの博客小站</title>
+  <title>MySql的远程访问和远程端口开放方法 | ITsuKiの博客小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="–因为是第一次参加嘛，准备又没有准备，被虐的挺惨的，成功的打了个铁，第一天在练习赛的时候做题还挺顺利，本以为题目难度也就这样了，作为一个二本学渣，英语无力，比赛当天以开赛，马上跟榜，看到签到题马上写，提交。。。突然就CE了，CE是什么鬼，改一下，又是CE，最后总结应该是代码风格问题，因为别人并没有遇到。">
-<meta name="keywords" content="编程,ACM,日记">
+  <meta name="description" content="在远程服务器上，数据库有时候是需要进行远程访问的，但默认Mysql没开启授权远程访问，相关的端口在服务器上可能也没有开放，所以，要进行远程访问就要解决这些问题">
+<meta name="keywords" content="mysql,数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一次参加 ACM-ICPC 2018陕西邀请赛手记">
-<meta property="og:url" content="http://hexo.itsukio.com/p/20180524012600.html">
+<meta property="og:title" content="MySql的远程访问和远程端口开放方法">
+<meta property="og:url" content="http://hexo.itsukio.com/p/20180928103643/index.html">
 <meta property="og:site_name" content="ITsuKiの博客小站">
-<meta property="og:description" content="–因为是第一次参加嘛，准备又没有准备，被虐的挺惨的，成功的打了个铁，第一天在练习赛的时候做题还挺顺利，本以为题目难度也就这样了，作为一个二本学渣，英语无力，比赛当天以开赛，马上跟榜，看到签到题马上写，提交。。。突然就CE了，CE是什么鬼，改一下，又是CE，最后总结应该是代码风格问题，因为别人并没有遇到。">
+<meta property="og:description" content="在远程服务器上，数据库有时候是需要进行远程访问的，但默认Mysql没开启授权远程访问，相关的端口在服务器上可能也没有开放，所以，要进行远程访问就要解决这些问题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.itsukio.com/p/1.jpg">
-<meta property="og:updated_time" content="2018-06-13T13:51:08.000Z">
+<meta property="og:updated_time" content="2019-01-10T18:55:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一次参加 ACM-ICPC 2018陕西邀请赛手记">
-<meta name="twitter:description" content="–因为是第一次参加嘛，准备又没有准备，被虐的挺惨的，成功的打了个铁，第一天在练习赛的时候做题还挺顺利，本以为题目难度也就这样了，作为一个二本学渣，英语无力，比赛当天以开赛，马上跟榜，看到签到题马上写，提交。。。突然就CE了，CE是什么鬼，改一下，又是CE，最后总结应该是代码风格问题，因为别人并没有遇到。">
-<meta name="twitter:image" content="http://hexo.itsukio.com/p/1.jpg">
+<meta name="twitter:title" content="MySql的远程访问和远程端口开放方法">
+<meta name="twitter:description" content="在远程服务器上，数据库有时候是需要进行远程访问的，但默认Mysql没开启授权远程访问，相关的端口在服务器上可能也没有开放，所以，要进行远程访问就要解决这些问题">
   
     <link rel="alternative" href="/atom.xml" title="ITsuKiの博客小站" type="application/atom+xml">
   
@@ -178,28 +176,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-第一次参加-ACM-ICPC-2018陕西邀请赛手记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MySql的远程访问和远程端口开放方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      第一次参加 ACM-ICPC 2018陕西邀请赛手记
+      MySql的远程访问和远程端口开放方法
     </h1>
   
 
         
-        <a href="/p/20180524012600.html" class="archive-article-date">
-  	<time datetime="2018-05-24T05:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-24</time>
+        <a href="/p/20180928103643/" class="archive-article-date">
+  	<time datetime="2018-09-28T14:36:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>–因为是第一次参加嘛，准备又没有准备，被虐的挺惨的，成功的打了个铁，第一天在练习赛的时候做题还挺顺利，本以为题目难度也就这样了，作为一个二本学渣，英语无力，比赛当天以开赛，马上跟榜，看到签到题马上写，提交。。。突然就CE了，CE是什么鬼，改一下，又是CE，最后总结应该是代码风格问题，因为别人并没有遇到。<br><a id="more"></a><br>–后面就开始经历绝望了，开了一题K题，交上去，超时，无解，返回去研究A题，没想到那么多人过的A题也是一个坑，解到最后解不开，博弈论–放弃，背包DP放弃，好的，只能啃面包了<br>–最后总结一下就是:明年我要再来一次!我就不信了，大一打不过，大二总有点办法，大二打不过，大三再打一波，总能打进去。</p>
-<p><img src="1.jpg" alt=""></p>
+        <p><strong>在远程服务器上，数据库有时候是需要进行远程访问的，但默认Mysql没开启授权远程访问，相关的端口在服务器上可能也没有开放，所以，要进行远程访问就要解决这些问题</strong><br><a id="more"></a></p>
+<h2 id="一、开启Mysql的远程访问授权"><a href="#一、开启Mysql的远程访问授权" class="headerlink" title="一、开启Mysql的远程访问授权"></a>一、开启Mysql的远程访问授权</h2><p>我建议是用的直接授权法（对于root账户）</p>
+<h4 id="1-登陆Mysql"><a href="#1-登陆Mysql" class="headerlink" title="1.登陆Mysql"></a>1.登陆Mysql</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost software]&gt; mysql -u root -proot</span><br></pre></td></tr></table></figure>
+<h4 id="2-输入相关指令"><a href="#2-输入相关指令" class="headerlink" title="2.输入相关指令"></a>2.输入相关指令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'youpassword'</span> WITH GRANT OPTION;</span><br><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<p><strong>[FLUSH PRIVILEGES]是刷新用户权限信息的指令</strong></p>
+<h2 id="二、开启服务器的3306端口（我这是CentOS系统的示例）"><a href="#二、开启服务器的3306端口（我这是CentOS系统的示例）" class="headerlink" title="二、开启服务器的3306端口（我这是CentOS系统的示例）"></a>二、开启服务器的3306端口（我这是CentOS系统的示例）</h2><p>CentOS默认使用了firewall作为防火墙，为了方便，我们改成iptables防火墙</p>
+<h4 id="1、关闭firewall："><a href="#1、关闭firewall：" class="headerlink" title="1、关闭firewall："></a>1、关闭firewall：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service</span><br><span class="line">systemctl mask firewalld.service</span><br></pre></td></tr></table></figure>
+<h4 id="2、安装iptables防火墙"><a href="#2、安装iptables防火墙" class="headerlink" title="2、安装iptables防火墙"></a>2、安装iptables防火墙</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install iptables-services -y</span><br></pre></td></tr></table></figure>
+<h4 id="3-启动设置防火墙"><a href="#3-启动设置防火墙" class="headerlink" title="3.启动设置防火墙"></a>3.启动设置防火墙</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; systemctl <span class="built_in">enable</span> iptables</span><br><span class="line">&gt; systemctl start iptables</span><br></pre></td></tr></table></figure>
+<h4 id="4-查看防火墙状态"><a href="#4-查看防火墙状态" class="headerlink" title="4.查看防火墙状态"></a>4.查看防火墙状态</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status iptables</span><br></pre></td></tr></table></figure>
+<h4 id="5-开放443端口-HTTPS"><a href="#5-开放443端口-HTTPS" class="headerlink" title="5.开放443端口(HTTPS)"></a>5.开放443端口(HTTPS)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 3306 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<h4 id="6-保存上述规则"><a href="#6-保存上述规则" class="headerlink" title="6.保存上述规则"></a>6.保存上述规则</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
+<p>7.重启，和开机启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart iptables.service <span class="comment">#重启防火墙使配置生效</span></span><br><span class="line">systemctl <span class="built_in">enable</span> iptables.service <span class="comment">#设置防火墙开机启动</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>上述文字所参考的来源：<br><a href="https://blog.csdn.net/zhldt2008/article/details/52626892" target="_blank" rel="noopener">https://blog.csdn.net/zhldt2008/article/details/52626892</a><br><a href="https://blog.csdn.net/zdb1314/article/details/78469016" target="_blank" rel="noopener">https://blog.csdn.net/zdb1314/article/details/78469016</a></p>
+</blockquote>
 
       
 
@@ -213,15 +225,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
@@ -280,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://hexo.itsukio.com/p/20180524012600.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://hexo.itsukio.com/p/20180928103643/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +302,18 @@
   
 <nav id="article-nav">
   
-    <a href="/p/20180720082249.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/p/20190111034329/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计
+          Hexo的个人博客网站的搭建历程（三）—评论系统
         
       </div>
     </a>
   
   
-    <a href="/p/20180430013222.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">DAC便携式耳放 ELECOM EHP-AHR192安卓版电脑使用教程</div>
+    <a href="/p/20180928092058/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL乱码问题的解决方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -325,6 +333,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、开启Mysql的远程访问授权"><span class="toc-number">1.</span> <span class="toc-text">一、开启Mysql的远程访问授权</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-登陆Mysql"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.登陆Mysql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-输入相关指令"><span class="toc-number">1.0.2.</span> <span class="toc-text">2.输入相关指令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、开启服务器的3306端口（我这是CentOS系统的示例）"><span class="toc-number">2.</span> <span class="toc-text">二、开启服务器的3306端口（我这是CentOS系统的示例）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、关闭firewall："><span class="toc-number">2.0.1.</span> <span class="toc-text">1、关闭firewall：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、安装iptables防火墙"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、安装iptables防火墙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-启动设置防火墙"><span class="toc-number">2.0.3.</span> <span class="toc-text">3.启动设置防火墙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-查看防火墙状态"><span class="toc-number">2.0.4.</span> <span class="toc-text">4.查看防火墙状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-开放443端口-HTTPS"><span class="toc-number">2.0.5.</span> <span class="toc-text">5.开放443端口(HTTPS)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-保存上述规则"><span class="toc-number">2.0.6.</span> <span class="toc-text">6.保存上述规则</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -338,11 +359,11 @@
     <link rel="stylesheet" href="//c.fansx.com/tc.css"/>
     <!-- 云评论框 start -->
     <div class="article-entry article-header">
-        <div id="tc_s24p20180524012600"></div>
+        <div id="tc_s24p20180928103643"></div>
     </div>
 	<!-- 云评论框 end -->
 	<!-- 云公共JS代码 start (一个网页只需插入一次) -->
-    <script src="//c.fansx.com/?m=c1&sid=24&pid=20180524012600"></script>
+    <script src="//c.fansx.com/?m=c1&sid=24&pid=20180928103643"></script>
 	<!-- 云公共JS代码 end -->
 </div>
   
@@ -464,6 +485,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DEEP Q&A</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
               </li>
              
@@ -481,22 +518,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搭建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DEEP Q&A</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,6 +549,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
              
@@ -537,14 +566,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">单片机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">

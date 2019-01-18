@@ -8,30 +8,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hexo.itsukio.com">
-  <title>DAC便携式耳放 ELECOM EHP-AHR192安卓版电脑使用教程 | ITsuKiの博客小站</title>
+  <title>Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计 | ITsuKiの博客小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ELECOM EHP-AHR192是一个搭载了AKM 4430ET耳放芯片的便携型耳放，虽然一般是拿来在手机上使用，但实际上也可以插在电脑上作为USb声卡使用，使用方法也比较简单，插上后也可以支持Hi-Res的解码和ASIO的支持！ 相关硬件的配置请看我的拆解博文:拆了个宜丽客的便携式DAC耳放 EHP-AHR192Sv安卓版">
-<meta name="keywords" content="DAC,声乐器材">
+  <meta name="description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成后大概是这样子的：">
+<meta name="keywords" content="编程,C#,单片机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DAC便携式耳放 ELECOM EHP-AHR192安卓版电脑使用教程">
-<meta property="og:url" content="http://hexo.itsukio.com/p/20180430013222.html">
+<meta property="og:title" content="Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计">
+<meta property="og:url" content="http://hexo.itsukio.com/p/20180720082249/index.html">
 <meta property="og:site_name" content="ITsuKiの博客小站">
-<meta property="og:description" content="ELECOM EHP-AHR192是一个搭载了AKM 4430ET耳放芯片的便携型耳放，虽然一般是拿来在手机上使用，但实际上也可以插在电脑上作为USb声卡使用，使用方法也比较简单，插上后也可以支持Hi-Res的解码和ASIO的支持！ 相关硬件的配置请看我的拆解博文:拆了个宜丽客的便携式DAC耳放 EHP-AHR192Sv安卓版">
+<meta property="og:description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成后大概是这样子的：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.itsukio.com/p/1.jpg">
-<meta property="og:image" content="http://hexo.itsukio.com/p/2.jpg">
-<meta property="og:image" content="http://hexo.itsukio.com/p/3.jpg">
-<meta property="og:image" content="http://hexo.itsukio.com/p/4.jpg">
-<meta property="og:image" content="http://hexo.itsukio.com/p/5.jpg">
-<meta property="og:image" content="http://hexo.itsukio.com/p/6.jpg">
-<meta property="og:image" content="http://hexo.itsukio.com/p/7.jpg">
-<meta property="og:image" content="http://hexo.itsukio.com/p/8.jpg">
-<meta property="og:image" content="http://hexo.itsukio.com/p/9.jpg">
-<meta property="og:updated_time" content="2018-04-30T06:32:10.000Z">
+<meta property="og:image" content="https://i.loli.net/2018/08/08/5b6ac229999aa.png">
+<meta property="og:image" content="https://i.loli.net/2018/08/08/5b6ac2299b04c.png">
+<meta property="og:updated_time" content="2018-08-08T10:29:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DAC便携式耳放 ELECOM EHP-AHR192安卓版电脑使用教程">
-<meta name="twitter:description" content="ELECOM EHP-AHR192是一个搭载了AKM 4430ET耳放芯片的便携型耳放，虽然一般是拿来在手机上使用，但实际上也可以插在电脑上作为USb声卡使用，使用方法也比较简单，插上后也可以支持Hi-Res的解码和ASIO的支持！ 相关硬件的配置请看我的拆解博文:拆了个宜丽客的便携式DAC耳放 EHP-AHR192Sv安卓版">
-<meta name="twitter:image" content="http://hexo.itsukio.com/p/1.jpg">
+<meta name="twitter:title" content="Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计">
+<meta name="twitter:description" content="飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。  完成后大概是这样子的：">
+<meta name="twitter:image" content="https://i.loli.net/2018/08/08/5b6ac229999aa.png">
   
     <link rel="alternative" href="/atom.xml" title="ITsuKiの博客小站" type="application/atom+xml">
   
@@ -186,53 +179,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-DAC便携式耳放-ELECOM-EHP-AHR192安卓版电脑使用教程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Winfirm图像传输上位机的设计" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      DAC便携式耳放 ELECOM EHP-AHR192安卓版电脑使用教程
+      Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计
     </h1>
   
 
         
-        <a href="/p/20180430013222.html" class="archive-article-date">
-  	<time datetime="2018-04-30T05:32:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
+        <a href="/p/20180720082249/" class="archive-article-date">
+  	<time datetime="2018-07-20T12:22:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ELECOM EHP-AHR192是一个搭载了AKM 4430ET耳放芯片的便携型耳放，虽然一般是拿来在手机上使用，但实际上也可以插在电脑上作为USb声卡使用，使用方法也比较简单，插上后也可以支持Hi-Res的解码和ASIO的支持！</p>
-<p><strong>相关硬件的配置请看我的拆解博文:</strong><a href="../../../2018/04/28/拆了个宜丽客的便携式DAC耳放-EHP-AHR192Sv安卓版">拆了个宜丽客的便携式DAC耳放 EHP-AHR192Sv安卓版</a><br><a id="more"></a><br>其实日本上就有人已经写出了教程，不过国内还没有，我就写一下，如何在win10/8/7系统下，使用ELECOM EHP-AHR192作为USB声卡</p>
-<blockquote>
-<p><strong>参考文章</strong>：<a href="https://zigsow.jp/item/338350/review/342169" target="_blank" rel="noopener">Android機器用MicroUSB-DACをPCで使って見よう！そして今時のハイレゾをEnjoyしようぜ！</a><br><strong>参考资料</strong><br>～ レビュー機種 ～<br>エレコム製 EHP-AHR192SV<br>製品HP：<a href="http://www2.elecom.co.jp/products/EHP-AHR192SV.html" target="_blank" rel="noopener">http://www2.elecom.co.jp/products/EHP-AHR192SV.html</a></p>
-<p>搭載IC①：Savitech SA9123</p>
-<p>搭載IC②：旭化成エレクトロニクス製 AK4430ET<br>HP：<a href="https://www.akm.com/akm/jp/product/datasheet1/?partno=AK4430ET" target="_blank" rel="noopener">https://www.akm.com/akm/jp/product/datasheet1/?partno=AK4430ET</a></p>
-<p><strong>SPEC</strong><br>サンプリングレート： 8kHz ～ 192kHz（＊旭化成エレクトロニクス公表値）<br>量子化ビット数：最大24bit<br>S/N比：96dB以上<br>ダイナミックレンジ：97dB以上<br>最大出力：45mW+45mW<br>消費電力：最大100mA/5V<br>接続対応機器：USB OTGに対応したAndroid 4.3以降の機種 </p>
-<p>サイズ：幅36×奥行11.4×高さ45mm（本体のみ、突起部を除く）<br>ケーブル長：約60cm（本体のみ）<br>質量：約40g（本体のみ） </p>
+        <blockquote>
+<p>飞思卡尔智能车竞赛准备开始了，最近也有不少学长在进行赛道调试等，最近就接到了学长一个要求就是做一个蓝牙的上位机做摄像头组来做无线数据传输调试。<br>技术取之于网络，也要回馈于网络，将蓝牙串口相关的上位机的制作过程进行一些分享。</p>
 </blockquote>
-<h3 id="第一步：安装BRAVO驱动"><a href="#第一步：安装BRAVO驱动" class="headerlink" title="第一步：安装BRAVO驱动"></a>第一步：安装BRAVO驱动</h3><p>因为USB通讯解码部分使用的是BRAVO SA9123芯片，插上电脑会识别但不会自动安装，SO，就需要去官网将驱动下载下来<br><strong>下载地址：</strong>www.drivers-download.com/en/downloadlist.php?id=311<br>下载最新的驱动（Version2.5.0）<br><img src="1.jpg" alt=""></p>
-<p>将下载好的驱动文件解压出来，运行文件夹中的<font color="#ff00">SETUP.exe</font>即可安装<br><img src="2.jpg" alt=""></p>
-<blockquote>
-<p><font color="#ff00" size="12">~~ 警告 ~~<br></font></p>
-<p><font color="#ff00">在使用播放音乐前请将音量调至非常小，因为此耳放有45mw的输出，而在电脑上，你必须调节音量至5%-10%才能获得正常的音量<br></font><br><img src="3.jpg" alt=""></p>
-</blockquote>
-<font color="#ff00">下面将进行foobar2000的设定→<br></font>
-
-<h3 id="第二步：关于foobar2000-WASAP-ASIO的设定"><a href="#第二步：关于foobar2000-WASAP-ASIO的设定" class="headerlink" title="第二步：关于foobar2000 WASAP/ASIO的设定"></a>第二步：关于foobar2000 WASAP/ASIO的设定</h3><p>在右下角的音量图标上右键→[<strong>播放设备</strong>]，可以看到你的USB DAC在电脑中识别的名字<br><img src="4.jpg" alt=""></p>
-<h6 id="首先启动foobar2000"><a href="#首先启动foobar2000" class="headerlink" title="首先启动foobar2000"></a>首先启动foobar2000</h6><p>点击左上角的<strong>File</strong><br><strong>→Preferences</strong><br><strong>→Playback</strong><br><strong>→Input</strong><br><strong>→Output设备选择『WASAPI(event)：EHP-AHR192』</strong><br><strong>在下面的音频输出位宽上选择 <font color="#ff00">24-bit<br></font></strong><br><img src="5.jpg" alt=""></p>
-<p>接下来我们回到桌面，你会发现桌面上有个<strong>BRAVO-HD Audio CPL</strong>快捷方式，打开它</p>
-<p><img src="6.jpg" alt=""><br><img src="7.jpg" alt=""></p>
-<p>在音频控制面板中，选择<font color="#ff00">192000HZ<br></font></p>
-<p>好了，接下来，你可以享受高品质的音频了！</p>
-<blockquote>
-<p><strong>更多相关信息请参考原帖:</strong><a href="https://zigsow.jp/item/338350/review/342169" target="_blank" rel="noopener">Android機器用MicroUSB-DACをPCで使って見よう！そして今時のハイレゾをEnjoyしようぜ！</a></p>
-</blockquote>
-<p><img src="8.jpg" alt=""><img src="9.jpg" alt=""></p>
+<p>完成后大概是这样子的：<br><a id="more"></a><br><img src="https://i.loli.net/2018/08/08/5b6ac229999aa.png" alt="SCFM0.png" title="SCFM0.png" width="500"><br>这是一个，摄像头二值化，蓝牙赛道数据传输的上位机（一次传输22560个二值化数据）</p>
+<p>当时只是想接收摄像头传回的二值化信息，稍微转换一下，显示即可<br>流程是：<br>新建一个winfrom工程–&gt;添加串口通讯相关代码–&gt;在界面设计中添加相关设置选项–&gt;添加一个richbox–&gt;添加接收转换相关代码–&gt;进行测试–&gt;测试成功–&gt;添加一个picturebox和相关代码–&gt;添加数据导入导出–&gt;完成</p>
+<p>Windows会为蓝牙模块虚拟一个COM口，设置好蓝牙模块，并进行配对就可以在蓝牙设置中看到COM口了（我使用的是HC-05），连接COM口即与蓝牙模块进行通讯。<br><img src="https://i.loli.net/2018/08/08/5b6ac2299b04c.png" alt="未命名图片.png" title="未命名图片.png" width="500"></p>
+<h2 id="下面贴相关代码，底下贴工程文件。"><a href="#下面贴相关代码，底下贴工程文件。" class="headerlink" title="下面贴相关代码，底下贴工程文件。"></a>下面贴相关代码，底下贴工程文件。</h2><h5 id="串口通讯初始化："><a href="#串口通讯初始化：" class="headerlink" title="串口通讯初始化："></a>串口通讯初始化：</h5><p><strong>需要(using System.IO.Ports;)</strong><br><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">serialPort1.DataReceived += sriaerialPort1_DataReceived;</span><br><span class="line">           <span class="comment">//蓝牙端口信息初始化</span></span><br><span class="line">           serialPort1.ReceivedBytesThreshold = <span class="number">1</span>;</span><br><span class="line">           serialPort1.BaudRate = <span class="number">115200</span>;</span><br><span class="line">           serialPort1.PortName = <span class="string">"COM1"</span>;</span><br><span class="line">           serialPort1.Parity = Parity.Even;</span><br><span class="line">           serialPort1.DataBits = <span class="number">8</span>;</span><br><span class="line">           serialPort1.StopBits = StopBits.One;</span><br></pre></td></tr></table></figure></p>
+<h5 id="打开串口通讯：（蓝牙连接按钮）"><a href="#打开串口通讯：（蓝牙连接按钮）" class="headerlink" title="打开串口通讯：（蓝牙连接按钮）"></a>打开串口通讯：（蓝牙连接按钮）</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span><span class="params">(object sender, EventArgs e)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (button1.Text == <span class="string">"打开串口"</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">try</span></span><br><span class="line">                &#123;</span><br><span class="line">                    serialPort1.Open();</span><br><span class="line">                    button1.Text = <span class="string">"关闭串口"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">                &#123;</span><br><span class="line">                    MessageBox.Show(ex.Message);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                serialPort1.Close();</span><br><span class="line">                button1.Text = <span class="string">"打开串口"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="发送数据给模块："><a href="#发送数据给模块：" class="headerlink" title="发送数据给模块："></a>发送数据给模块：</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button2_Click</span><span class="params">(object sender, EventArgs e)</span></span></span><br><span class="line"><span class="function">       </span>&#123;</span><br><span class="line">           <span class="built_in">string</span> serialStringTemp = <span class="keyword">this</span>.textBox1.Text;</span><br><span class="line">           <span class="keyword">this</span>.serialPort1.WriteLine(serialStringTemp);</span><br><span class="line">           Thread.Sleep(<span class="number">150</span>);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="接收蓝牙数据事件，并将接收到的展示于richbox"><a href="#接收蓝牙数据事件，并将接收到的展示于richbox" class="headerlink" title="接收蓝牙数据事件，并将接收到的展示于richbox:"></a>接收蓝牙数据事件，并将接收到的展示于richbox:</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sriaerialPort1_DataReceived</span><span class="params">(object sender,System.IO.Ports.SerialDataReceivedEventArgs e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> seriaReadString = serialPort1.ReadExisting();</span><br><span class="line">    <span class="keyword">this</span>.richTextBox1.Invoke(<span class="keyword">new</span> MethodInvoker(delegate &#123; <span class="keyword">this</span>.richTextBox1.AppendText(seriaReadString); &#125;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="picturebox绘图相关"><a href="#picturebox绘图相关" class="headerlink" title="picturebox绘图相关:"></a>picturebox绘图相关:</h5><figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">huitu</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> i, j, k = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">119</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">188</span>; j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//Color newColorxy = Color.FromArgb(richTextBox1.Text[k], richTextBox1.Text[k], richTextBox1.Text[k]);</span></span><br><span class="line">                    <span class="comment">//Towing.SetPixel(Row, i * 2, newColorH);</span></span><br><span class="line">                    <span class="keyword">if</span> (richTextBox1.Text[k] == <span class="string">'1'</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        Towimg.SetPixel(j, i, Color.FromArgb(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        Towimg.SetPixel(j, i, Color.FromArgb(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                    k++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//this.richTextBox1.Text = this.richTextBox1.Text.Insert(k, "\r\n");</span></span><br><span class="line">                <span class="comment">//k++;</span></span><br><span class="line">            &#125;</span><br><span class="line">            pictureBox1.Image = Towimg;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><p><a href="https://blog.csdn.net/u011964923/article/details/50967351" target="_blank" rel="noopener">https://blog.csdn.net/u011964923/article/details/50967351</a><br><a href="https://www.cnblogs.com/zjutlitao/p/3886826.html" target="_blank" rel="noopener">https://www.cnblogs.com/zjutlitao/p/3886826.html</a></p>
+<h4 id="工程文件："><a href="#工程文件：" class="headerlink" title="工程文件："></a>工程文件：</h4><p>链接：<a href="https://pan.baidu.com/s/1L10ITlS2f8tBxw9S2TqdGQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1L10ITlS2f8tBxw9S2TqdGQ</a> 密码：wx8p</p>
 
       
 
@@ -246,11 +225,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DAC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">声乐器材</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单片机</a>
         		</li>
       		
 		</ul>
@@ -309,7 +292,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://hexo.itsukio.com/p/20180430013222.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://hexo.itsukio.com/p/20180720082249/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,18 +306,18 @@
   
 <nav id="article-nav">
   
-    <a href="/p/20180524012600.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/p/20180808043213/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          第一次参加 ACM-ICPC 2018陕西邀请赛手记
+          腾讯桌面整理-DeskGo新版本硬件加速关闭方法
         
       </div>
     </a>
   
   
-    <a href="/p/20180429080845.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Deep Q&amp;A 聊天机器人基本框架的搭建</div>
+    <a href="/p/20180524012600/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第一次参加 ACM-ICPC 2018陕西邀请赛手记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -361,7 +344,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步：安装BRAVO驱动"><span class="toc-number">1.</span> <span class="toc-text">第一步：安装BRAVO驱动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步：关于foobar2000-WASAP-ASIO的设定"><span class="toc-number">2.</span> <span class="toc-text">第二步：关于foobar2000 WASAP/ASIO的设定</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#首先启动foobar2000"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">首先启动foobar2000</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面贴相关代码，底下贴工程文件。"><span class="toc-number">1.</span> <span class="toc-text">下面贴相关代码，底下贴工程文件。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#串口通讯初始化："><span class="toc-number">1.0.0.1.</span> <span class="toc-text">串口通讯初始化：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#打开串口通讯：（蓝牙连接按钮）"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">打开串口通讯：（蓝牙连接按钮）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#发送数据给模块："><span class="toc-number">1.0.0.3.</span> <span class="toc-text">发送数据给模块：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#接收蓝牙数据事件，并将接收到的展示于richbox"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">接收蓝牙数据事件，并将接收到的展示于richbox:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#picturebox绘图相关"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">picturebox绘图相关:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料："><span class="toc-number">1.0.1.</span> <span class="toc-text">参考资料：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工程文件："><span class="toc-number">1.0.2.</span> <span class="toc-text">工程文件：</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -380,11 +363,11 @@
     <link rel="stylesheet" href="//c.fansx.com/tc.css"/>
     <!-- 云评论框 start -->
     <div class="article-entry article-header">
-        <div id="tc_s24p20180430013222"></div>
+        <div id="tc_s24p20180720082249"></div>
     </div>
 	<!-- 云评论框 end -->
 	<!-- 云公共JS代码 start (一个网页只需插入一次) -->
-    <script src="//c.fansx.com/?m=c1&sid=24&pid=20180430013222"></script>
+    <script src="//c.fansx.com/?m=c1&sid=24&pid=20180720082249"></script>
 	<!-- 云公共JS代码 end -->
 </div>
   
@@ -506,6 +489,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DEEP Q&A</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
               </li>
              
@@ -523,22 +522,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搭建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DEEP Q&A</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,6 +553,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
              
@@ -579,14 +570,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">单片机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
