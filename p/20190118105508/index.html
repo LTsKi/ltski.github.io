@@ -11,7 +11,7 @@
   <title>[小白向] 如何部署一个静态网页到自己的服务器并开放访问 | ITsuKiの博客小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="部署网页（本文讲CentOS+Apache的方法） 如果你是一个刚刚学习网页制作(HTML)的学生，那么当你做出一个属于自己的网页的时候首先就会想到与别人分享自己的成果，但如何将自己做出来的网页部署在服务器上面呢？">
-<meta name="keywords" content="教程,服务器,网页">
+<meta name="keywords" content="教程,建站,服务器,网页">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[小白向] 如何部署一个静态网页到自己的服务器并开放访问">
 <meta property="og:url" content="https://hexo.itsukio.com/p/20190118105508/index.html">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/01/18/5c41f46bb535d.png">
 <meta property="og:image" content="https://i.loli.net/2019/01/18/5c41f69b9b72d.png">
 <meta property="og:image" content="https://i.loli.net/2019/01/19/5c41f951ddefa.png">
-<meta property="og:updated_time" content="2019-01-18T16:25:08.405Z">
+<meta property="og:updated_time" content="2019-01-18T16:39:32.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[小白向] 如何部署一个静态网页到自己的服务器并开放访问">
 <meta name="twitter:description" content="部署网页（本文讲CentOS+Apache的方法） 如果你是一个刚刚学习网页制作(HTML)的学生，那么当你做出一个属于自己的网页的时候首先就会想到与别人分享自己的成果，但如何将自己做出来的网页部署在服务器上面呢？">
@@ -243,7 +243,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#关闭firewall：</span></span><br><span class="line">systemctl stop firewalld.service    //停止防火墙</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service     //禁用防火墙</span><br><span class="line">systemctl mask firewalld.service    //注销防火墙</span><br><span class="line">chkconfig iptables off  //如果有安装了iptables防火墙，则会关闭</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>###成果<br>进行了上面这一顿操作后，直接在浏览器中输入你的服务器地址：<br>刚才我上传的<strong> index.html</strong>成功显示出来了<br><img src="https://i.loli.net/2019/01/19/5c41f951ddefa.png" alt=""></p>
+<h3 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h3><p>进行了上面这一顿操作后，直接在浏览器中输入你的服务器地址：<br>刚才我上传的<strong> index.html</strong>成功显示出来了<br><img src="https://i.loli.net/2019/01/19/5c41f951ddefa.png" alt=""></p>
 <p>成功之后，如果需要绑定域名的话直接在域名中添加解析 A记录 为你的服务器IP地址就可以了。</p>
 
       
@@ -259,6 +259,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建站</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -500,6 +504,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">破解</a>
               </li>
              
@@ -509,14 +521,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">游戏机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DAC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,6 +560,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">服务器</a>
               </li>
              
@@ -565,14 +573,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,6 +597,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
             
             <div class="clearfix"></div>
