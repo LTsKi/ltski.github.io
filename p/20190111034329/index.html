@@ -7,14 +7,14 @@
   <meta name="baidu-site-verification" content="qvLAQ1wZhk" />
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://hexo.ltsuki.com">
+  <link rel="dns-prefetch" href="https://hexo.ltski.com">
   <title>Hexo的个人博客网站的搭建历程（三）—评论系统 | ITsuKiの博客小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="开头说到建立博客，除了分享自己的一些文章，记录自己的足迹以外，还有一个乐趣那就是建立一个博客评论系统了，当看到有小伙伴在你的博客下留言的时候，你的心情一定会无比的开心">
-<meta name="keywords" content="维护,建站,Github,Hexo,主题">
+<meta name="keywords" content="建站,Github,Hexo,维护,主题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo的个人博客网站的搭建历程（三）—评论系统">
-<meta property="og:url" content="https://hexo.ltsuki.com/p/20190111034329/index.html">
+<meta property="og:url" content="https://hexo.ltski.com/p/20190111034329/index.html">
 <meta property="og:site_name" content="ITsuKiの博客小站">
 <meta property="og:description" content="开头说到建立博客，除了分享自己的一些文章，记录自己的足迹以外，还有一个乐趣那就是建立一个博客评论系统了，当看到有小伙伴在你的博客下留言的时候，你的心情一定会无比的开心">
 <meta property="og:locale" content="zh-CN">
@@ -63,11 +63,11 @@
 <div class="overlay" style="background: #ffffff url(https://i.loli.net/2018/07/22/5b53ffaf350eb.jpg);background-size:100%"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
-		<a href="https://hexo.ltsuki.com" class="profilepic">
+		<a href="https://hexo.ltski.com" class="profilepic">
 			<img src="https://i.loli.net/2018/07/22/5b53f9a8614f3.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="https://hexo.ltsuki.com">ʚITsukiɞ</a></h1>
+		  <h1 class="header-author"><a href="https://hexo.ltski.com">ʚITsukiɞ</a></h1>
 		</hgroup>
 		
 		<!-- 这一段是网页侧边分类菜单“主页”“建站” -->
@@ -224,7 +224,7 @@
 <p>对插入的结构进行分析，就会发现，就是IF的判断这么简单，如果（if）开启评论系统，则插入xxxxx页面，再定义了一些所需的变量，今次而已，那么，我们也依葫芦画瓢添加一个判断，最终就写出了下面的代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (theme.yunping)&#123; %&gt;</span><br><span class="line">&lt;%- partial(<span class="string">'post/yunping'</span>, &#123;</span><br><span class="line">    key: theme.yunping_sid,</span><br><span class="line">    title: post._id</span><br><span class="line">  &#125;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
 <p>如果，theme.yunping这个参数为ture则运行下面的代码，插入页面post/yunping.ejs,带入两个变量（key,和title）</p>
 <blockquote>
-<p>theme.yunping_sid 是_config.yml的自建参数，你可以在_config.yml添加这一项并将ID写入<br>post._id 是HEXO文章的文章变量，官方文档并没有注明，在对源代码进行一顿分析之后才发现的这个变量，因为示例所使用的评论系统[pid]只能是数字和英文，所以只能用id作为变量，有些评论系统是用文章标题作为识别的则你需要是用post.title作为变量。全局变量直接查阅官方文档直接使用即可<br>这段写完了，那么，插入页面的代码写在哪里？就是在post/yunping.ejs里，你会在artucle.ejs目录发现一个post文件夹，在文件夹中新建一个yunping.ejs（文件名按照所写的代码来）文件<br>目录结构是这样：<br><img src="https://i.loli.net/2019/01/11/5c37ac3be5d59.png" alt="目录结构" title="目录结构" width="300"><br>打开yunping.ejs，按照评论系统网站上要求插入的代码进行插入，最终写了如下代码:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"yunping"</span>&gt;</span><br><span class="line">    &lt;!-- 引入云评论系统css代码 --&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"//c.fansx.com/tc.css"</span>/&gt;</span><br><span class="line">    &lt;!-- 云评论框 start --&gt;</span><br><span class="line">        &lt;div id=<span class="string">"tc_s&lt;%=key%&gt;p&lt;%=title%&gt;"</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 云评论框 end --&gt;</span><br><span class="line">	&lt;!-- 云公共JS代码 start (一个网页只需插入一次) --&gt;</span><br><span class="line">    &lt;script src=<span class="string">"//c.fansx.com/?m=c1&amp;sid=&lt;%=key%&gt;&amp;pid=&lt;%=title%&gt;"</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 云公共JS代码 end --&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>theme.yunping_sid 是_config.yml的自建参数，你可以在_config.yml添加这一项并将ID写入<br>post._id 是HEXO文章的文章变量，官方文档并没有注明，在对源代码进行一顿分析之后才发现的这个变量，因为示例所使用的评论系统[pid]只能是数字和英文，所以只能用id作为变量，有些评论系统是用文章标题作为识别的则你需要是用post.title作为变量。全局变量直接查阅官方文档直接使用即可<br>这段写完了，那么，插入页面的代码写在哪里？就是在post/yunping.ejs里，你会在artucle.ejs目录发现一个post文件夹，在文件夹中新建一个yunping.ejs（文件名按照所写的代码来）文件<br>目录结构是这样：<br><img src="https://i.loli.net/2019/01/11/5c37ac3be5d59.png" alt="目录结构" title="目录结构" width="300"><br>打开yunping.ejs，按照评论系统网站上要求插入的代码进行插入，最终写了如下代码:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"yunping"</span>&gt;</span><br><span class="line">    &lt;!-- 引入云评论系统css代码 --&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"//c.fansx.com/tc.css"</span>/&gt;</span><br><span class="line">    &lt;!-- 云评论框 start --&gt;</span><br><span class="line">        &lt;div id=<span class="string">"tc_s&lt;%=key%&gt;p&lt;%=title%&gt;"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">	&lt;!-- 云评论框 end --&gt;</span><br><span class="line">	&lt;!-- 云公共JS代码 start (一个网页只需插入一次) --&gt;</span><br><span class="line">    &lt;script src=<span class="string">"//c.fansx.com/?m=c1&amp;sid=&lt;%=key%&gt;&amp;pid=&lt;%=title%&gt;"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    &lt;!-- 云公共JS代码 end --&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>其中，[sid]和[pid]由&lt;%=key%&gt;和&lt;%=title%&gt;这两个变量来替换就好了。</p>
 </blockquote>
@@ -252,7 +252,7 @@
 </code></pre><p>// 1:05:12 pm</p>
 </blockquote>
 <p>根据文档里的说法，我们就可以依葫芦画瓢把post.date变量格式化为我们需要的字段了。<br>下面是相关的代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">文件：<span class="string">"article.ejs"</span></span><br><span class="line"><span class="comment">//中的插入代码修改成了这样（title参数不要了，在yunping.ejs中直接获取好了）</span></span><br><span class="line">-----------------------------------------------------------------------------</span><br><span class="line">  &lt;% <span class="keyword">if</span> (theme.yunping)&#123; %&gt;</span><br><span class="line">  &lt;%- partial(<span class="string">'post/yunping'</span>, &#123;</span><br><span class="line">      key: theme.yunping_sid,</span><br><span class="line">    &#125;) %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">文件：<span class="string">"yunping.ejs"</span></span><br><span class="line"><span class="comment">//中的插入代码修改成了这样（title参数不要了，在yunping.ejs中直接获取好了）</span></span><br><span class="line">-----------------------------------------------------------------------------</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"yunping"</span>&gt;</span><br><span class="line">    &lt;!-- 引入云评论系统css代码 --&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"//c.fansx.com/tc.css"</span>/&gt;</span><br><span class="line">    &lt;!-- 云评论框 start --&gt;</span><br><span class="line">        &lt;div id=<span class="string">"tc_s&lt;%=key%&gt;p&lt;%- date(post.date, 'YYYYMDhmmss') %&gt;"</span>&gt;&lt;/div&gt;</span><br><span class="line">	&lt;!-- 云评论框 end --&gt;</span><br><span class="line">	&lt;!-- 云公共JS代码 start (一个网页只需插入一次) --&gt;</span><br><span class="line">    &lt;script src=<span class="string">"//c.fansx.com/?m=c1&amp;sid=&lt;%=key%&gt;&amp;pid=&lt;%- date(post.date, 'YYYYMDhmmss') %&gt;"</span>&gt;&lt;/script&gt;</span><br><span class="line">	&lt;!-- 云公共JS代码 end --&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">文件：<span class="string">"yunping.ejs"</span></span><br><span class="line"><span class="comment">//中的插入代码修改成了这样（title参数不要了，在yunping.ejs中直接获取好了）</span></span><br><span class="line">-----------------------------------------------------------------------------</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"yunping"</span>&gt;</span><br><span class="line">    &lt;!-- 引入云评论系统css代码 --&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"//c.fansx.com/tc.css"</span>/&gt;</span><br><span class="line">    &lt;!-- 云评论框 start --&gt;</span><br><span class="line">        &lt;div id=<span class="string">"tc_s&lt;%=key%&gt;p&lt;%- date(post.date, 'YYYYMDhmmss') %&gt;"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">	&lt;!-- 云评论框 end --&gt;</span><br><span class="line">	&lt;!-- 云公共JS代码 start (一个网页只需插入一次) --&gt;</span><br><span class="line">    &lt;script src=<span class="string">"//c.fansx.com/?m=c1&amp;sid=&lt;%=key%&gt;&amp;pid=&lt;%- date(post.date, 'YYYYMDhmmss') %&gt;"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">	&lt;!-- 云公共JS代码 end --&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
 <p>经过这一顿折腾，文章评论的[pid]算是正常了。</p>
 <h3 id="成果的检验"><a href="#成果的检验" class="headerlink" title="成果的检验"></a>成果的检验</h3><p>现在执行hexo server 预览一下，如果没问题的话，评论应该就会显示在你的文章底部了</p>
 <h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>测试成功之后，就可以对评论系统的样式进行一下修改，最后就可以发布页面了。看，你的博客的评论页面就这样搭好了，是不是很简单呢？🙃（逃</p>
@@ -285,13 +285,13 @@
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://yun.ltsuki.com/?/images/2019/01/06/TBW1v9aFLX/generate%20%281%29.png">
+                      <img class="reward-img" src="http://yun.ltski.com/?/images/2019/01/06/TBW1v9aFLX/generate%20%281%29.png">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://yun.ltsuki.com/?/images/2019/01/06/r76UDipZbI/generate.png">
+                      <img class="reward-img" src="http://yun.ltski.com/?/images/2019/01/06/r76UDipZbI/generate.png">
                       <span class="reward-type">微信</span>
                     </div>
                     
@@ -312,10 +312,6 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">维护</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建站</a>
         		</li>
       		 
@@ -325,6 +321,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">维护</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -398,7 +398,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://hexo.ltsuki.com/p/20190111034329/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hexo.ltski.com/p/20190111034329/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -595,38 +595,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">破解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3DS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游戏机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">维护</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">建站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DAC</a>
               </li>
              
@@ -655,7 +623,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">建站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">维护</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">主题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,6 +648,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">3DS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">游戏机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,6 +672,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">单片机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
