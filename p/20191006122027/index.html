@@ -18,15 +18,16 @@
 <meta property="og:site_name" content="ITsuKiの博客小站">
 <meta property="og:description" content="前言 由于学习需要，对于深度学习的已经有了一些基本的了解，在2019年秋的Google大会上，Google Docs正式发布了TensorFlow2.0版本，非常欣喜的是2.0的版本内置了Keras ，当年我使用Keras的时候真的非常的方便，现在官网内置了，怀着激动的心情想要体验一下TensorFlow2.0版本。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yun.ltski.com/?/web-images/hexo/20191006123827-1.png">
 <meta property="og:image" content="http://yun.ltski.com/?/web-images/hexo/20191006123827.png">
 <meta property="og:image" content="http://yun.ltski.com/?/web-images/hexo/20191006141003.png">
 <meta property="og:image" content="http://yun.ltski.com/?/web-images/hexo/20191006123840.png">
 <meta property="og:image" content="http://yun.ltski.com/?/web-images/hexo/20191006144443.png">
-<meta property="og:updated_time" content="2019-10-06T07:12:08.574Z">
+<meta property="og:updated_time" content="2019-10-06T08:59:49.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow2.0的搭建">
 <meta name="twitter:description" content="前言 由于学习需要，对于深度学习的已经有了一些基本的了解，在2019年秋的Google大会上，Google Docs正式发布了TensorFlow2.0版本，非常欣喜的是2.0的版本内置了Keras ，当年我使用Keras的时候真的非常的方便，现在官网内置了，怀着激动的心情想要体验一下TensorFlow2.0版本。">
-<meta name="twitter:image" content="http://yun.ltski.com/?/web-images/hexo/20191006123827.png">
+<meta name="twitter:image" content="http://yun.ltski.com/?/web-images/hexo/20191006123827-1.png">
   
     <link rel="alternative" href="/atom.xml" title="ITsuKiの博客小站" type="application/atom+xml">
   
@@ -201,11 +202,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div align="center"><br><br><img src="http://yun.ltski.com/?/web-images/hexo/20191006123827.png" alt=""><br></div>
-
+        <p><img class="show_img" src="http://yun.ltski.com/?/web-images/hexo/20191006123827-1.png"></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>由于学习需要，对于深度学习的已经有了一些基本的了解，在2019年秋的Google大会上，Google Docs正式发布了TensorFlow2.0版本，非常欣喜的是2.0的版本内置了Keras ，当年我使用Keras的时候真的非常的方便，现在官网内置了，怀着激动的心情想要体验一下TensorFlow2.0版本。<br><a id="more"></a></p>
 </blockquote>
+<div align="center"><br><br><img src="http://yun.ltski.com/?/web-images/hexo/20191006123827.png" alt=""><br></div>
+
+
+
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>安装TensorFlow2.0你需要预先安装好一些环境，相关的安装信息请前往<a href="https://tensorflow.google.cn/install" target="_blank" rel="noopener">TensorFlow官网</a>进行查看，我这边是使用的Windows系统进行安装，使用的是NVIDIA的独立显卡。<br>需要使用TensorFlow的GPU版本，所以需要提前安装的有：</p>
 <blockquote>
 <ul>
@@ -268,7 +272,7 @@
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">print(tf.__version__)</span><br></pre></td></tr></table></figure>
 <p> 出现 <strong>2.0.0</strong> 字样就说明正常运行，否则就是安装的流程有问题了</p>
 </li>
-<li>接下来我们看一下官方的 <strong><a href="https://tensorflow.google.cn/tutorials/quickstart/beginner" target="_blank" rel="noopener">初学者TensorFlow2.0教程</a></strong> 具体的代码就请自行去官网看了，我这里只把我的代码粘贴出来：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">print(tf.__version__)</span><br><span class="line">mnist = tf.keras.datasets.mnist <span class="comment">#mnist手写数字数据集</span></span><br></pre></td></tr></table></figure>
+<li>接下来我们看一下官方的 <strong><a href="https://tensorflow.google.cn/tutorials/quickstart/beginner" target="_blank" rel="noopener">初学者TensorFlow2.0教程</a></strong> 具体的代码就请自行去官网看了。<br><strong>这里只把我的代码粘贴出来：</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">print(tf.__version__)</span><br><span class="line">mnist = tf.keras.datasets.mnist <span class="comment">#mnist手写数字数据集</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span> <span class="comment">#数据集赋值并统一化</span></span><br></pre></td></tr></table></figure>
@@ -628,18 +632,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -660,7 +652,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,6 +673,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">单片机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
              
               <li class="article-tag-list-item">
