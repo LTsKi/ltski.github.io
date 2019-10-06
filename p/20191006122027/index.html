@@ -8,26 +8,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://hexo.ltski.com">
-  <title>Deep Q&amp;A 聊天机器人基本框架的搭建 | ITsuKiの博客小站</title>
+  <title>TensorFlow2.0的搭建 | ITsuKiの博客小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;amp;A聊天机器人的基本框架，和示例模型的引入测试  参考：Deep Q&amp;amp;A 仓库 :https://github.com/Conchylicultor/DeepQA论文 :https://arxiv.org/pdf/1506.05869.pdf   第一步：将Deep Q&amp;amp;A下载到自己的硬盘">
+  <meta name="description" content="前言 由于学习需要，对于深度学习的已经有了一些基本的了解，在2019年秋的Google大会上，Google Docs正式发布了TensorFlow2.0版本，非常欣喜的是2.0的版本内置了Keras ，当年我使用Keras的时候真的非常的方便，现在官网内置了，怀着激动的心情想要体验一下TensorFlow2.0版本。">
 <meta name="keywords" content="深度学习,教程,搭建,DEEP Q&amp;A">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Deep Q&amp;A 聊天机器人基本框架的搭建">
-<meta property="og:url" content="https://hexo.ltski.com/p/20180429080845/index.html">
+<meta property="og:title" content="TensorFlow2.0的搭建">
+<meta property="og:url" content="https://hexo.ltski.com/p/20191006122027/index.html">
 <meta property="og:site_name" content="ITsuKiの博客小站">
-<meta property="og:description" content="在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;amp;A聊天机器人的基本框架，和示例模型的引入测试  参考：Deep Q&amp;amp;A 仓库 :https://github.com/Conchylicultor/DeepQA论文 :https://arxiv.org/pdf/1506.05869.pdf   第一步：将Deep Q&amp;amp;A下载到自己的硬盘">
+<meta property="og:description" content="前言 由于学习需要，对于深度学习的已经有了一些基本的了解，在2019年秋的Google大会上，Google Docs正式发布了TensorFlow2.0版本，非常欣喜的是2.0的版本内置了Keras ，当年我使用Keras的时候真的非常的方便，现在官网内置了，怀着激动的心情想要体验一下TensorFlow2.0版本。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://hexo.ltski.com/p/20180429080845/1.png">
-<meta property="og:image" content="https://hexo.ltski.com/p/20180429080845/4.png">
-<meta property="og:image" content="https://hexo.ltski.com/p/20180429080845/2.png">
-<meta property="og:image" content="https://hexo.ltski.com/p/20180429080845/3.png">
-<meta property="og:image" content="https://hexo.ltski.com/p/20180429080845/5.png">
-<meta property="og:updated_time" content="2018-06-05T04:01:49.910Z">
+<meta property="og:image" content="http://yun.ltski.com/?/web-images/hexo/20191006123827.png">
+<meta property="og:image" content="http://yun.ltski.com/?/web-images/hexo/20191006141003.png">
+<meta property="og:image" content="http://yun.ltski.com/?/web-images/hexo/20191006123840.png">
+<meta property="og:image" content="http://yun.ltski.com/?/web-images/hexo/20191006144443.png">
+<meta property="og:updated_time" content="2019-10-06T07:12:08.574Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deep Q&amp;A 聊天机器人基本框架的搭建">
-<meta name="twitter:description" content="在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;amp;A聊天机器人的基本框架，和示例模型的引入测试  参考：Deep Q&amp;amp;A 仓库 :https://github.com/Conchylicultor/DeepQA论文 :https://arxiv.org/pdf/1506.05869.pdf   第一步：将Deep Q&amp;amp;A下载到自己的硬盘">
-<meta name="twitter:image" content="https://hexo.ltski.com/p/20180429080845/1.png">
+<meta name="twitter:title" content="TensorFlow2.0的搭建">
+<meta name="twitter:description" content="前言 由于学习需要，对于深度学习的已经有了一些基本的了解，在2019年秋的Google大会上，Google Docs正式发布了TensorFlow2.0版本，非常欣喜的是2.0的版本内置了Keras ，当年我使用Keras的时候真的非常的方便，现在官网内置了，怀着激动的心情想要体验一下TensorFlow2.0版本。">
+<meta name="twitter:image" content="http://yun.ltski.com/?/web-images/hexo/20191006123827.png">
   
     <link rel="alternative" href="/atom.xml" title="ITsuKiの博客小站" type="application/atom+xml">
   
@@ -182,75 +181,101 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Deep-Q-A-聊天机器人基本框架的搭建" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-TensorFlow2-0的搭建" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Deep Q&amp;A 聊天机器人基本框架的搭建
+      TensorFlow2.0的搭建
     </h1>
   
 
         
-        <a href="/p/20180429080845/" class="archive-article-date">
-  	<time datetime="2018-04-29T12:08:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-29</time>
+        <a href="/p/20191006122027/" class="archive-article-date">
+  	<time datetime="2019-10-06T04:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;A聊天机器人的基本框架，和示例模型的引入测试</strong></p>
-<blockquote>
-<p>参考：<br><a href="https://github.com/Conchylicultor/DeepQA" target="_blank" rel="noopener">Deep Q&amp;A 仓库</a> :<a href="https://github.com/Conchylicultor/DeepQA" target="_blank" rel="noopener">https://github.com/Conchylicultor/DeepQA</a><br><a href="https://arxiv.org/pdf/1506.05869.pdf" target="_blank" rel="noopener">论文</a> :<a href="https://arxiv.org/pdf/1506.05869.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1506.05869.pdf</a> </p>
-</blockquote>
-<h6 id="第一步：将Deep-Q-amp-A下载到自己的硬盘"><a href="#第一步：将Deep-Q-amp-A下载到自己的硬盘" class="headerlink" title="第一步：将Deep Q&amp;A下载到自己的硬盘"></a>第一步：将Deep Q&amp;A下载到自己的硬盘</h6><a id="more"></a>
-<p><strong>推荐直接clone到本地：</strong></p>
-<blockquote>
-<p>不知如何clone?请先学习<a href="">Git的用法</a><a href="http://www.runoob.com/git/git-tutorial.html" target="_blank" rel="noopener">http://www.runoob.com/git/git-tutorial.html</a></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/Conchylicultor/DeepQA</span><br></pre></td></tr></table></figure>
-<h6 id="第二步：下载并安装tensorflow"><a href="#第二步：下载并安装tensorflow" class="headerlink" title="第二步：下载并安装tensorflow"></a>第二步：下载并安装tensorflow</h6><p>推荐一个官方中文的tensorflow网址：<a href="https://www.tensorflow.org/" target="_blank" rel="noopener">https://www.tensorflow.org/</a><br><strong>在安装之前：</strong></p>
-<font color="#ff00">建议先检查一下自己的Python环境是否安装好，之后的命令都需要依赖Python，需要Python3+的版本<br></font>
+        <div align="center"><br><br><img src="http://yun.ltski.com/?/web-images/hexo/20191006123827.png" alt=""><br></div>
 
-<p>引用一下官方中文的安装方法:<br>(<strong>推荐使用PIP进行安装</strong>)</p>
-<blockquote>
-<p><strong>确定如何安装 TensorFlow</strong></p>
-<p>您必须选择安装 TensorFlow 的方式。目前可支持如下几种方式：</p>
-<p>“原生”pip<br>Anaconda<br>原生 pip 会直接在您的系统上安装 TensorFlow，而不是通过虚拟环境。原生 pip 安装并未隔离在单独的容器中进行，因此可能会干扰系统中其他基于Python 的安装。但是，如果您熟悉 pip 和您的 Python 环境，通常只需一条命令即可进行原生 pip 安装。此外，如果使用原生 pip 安装，用户可以从系&gt;统上的任何目录运行 TensorFlow 程序。</p>
-<p>在 Anaconda 中，您可以使用 conda 来创建一个虚拟环境。但是，在 Anaconda 内部，我们建议使用 pip install 命令来安装 TensorFlow，而不要使用 conda install 命令。</p>
-<p>注意：conda 软件包是由社区提供支持的，并没有任何官方支持。也就是说，TensorFlow 团队既不测试也不维护 conda 软件包。若使用该软件包，您需要自行承担相关风险。</p>
-<p><strong>使用原生 pip 进行安装</strong></p>
-<p>如果您的计算机上未安装以下某个 Python 版本，请立即安装：</p>
-<p>来自 python.org 的 Python 3.5.x 64 位<br>来自 python.org 的 Python 3.6.x 64 位<br>在 Windows 上，TensorFlow 支持 Python 3.5.x 和 3.6.x。请注意，Python 3 附带有 pip3 软件包管理器，您需使用此程序来安装 TensorFlow。</p>
-<p>要安装 TensorFlow，请启动终端。然后在该终端中发出正确的 pip3 install 命令。要安装仅支持 CPU 的 TensorFlow 版本，请输入以下命令：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt; pip3 install --upgrade tensorflow</span><br></pre></td></tr></table></figure>
-<p>要安装 GPU 版本的 TensorFlow，请输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt; pip3 install --upgrade tensorflow-gpu</span><br></pre></td></tr></table></figure>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>由于学习需要，对于深度学习的已经有了一些基本的了解，在2019年秋的Google大会上，Google Docs正式发布了TensorFlow2.0版本，非常欣喜的是2.0的版本内置了Keras ，当年我使用Keras的时候真的非常的方便，现在官网内置了，怀着激动的心情想要体验一下TensorFlow2.0版本。<br><a id="more"></a></p>
 </blockquote>
-<h6 id="第三步：安装Deep-Q-amp-A相关的依赖"><a href="#第三步：安装Deep-Q-amp-A相关的依赖" class="headerlink" title="第三步：安装Deep Q&amp;A相关的依赖"></a>第三步：安装Deep Q&amp;A相关的依赖</h6><p><img src="1.png" alt=""><br>根据官方的README，作者已经写好了下载相关依赖的命令，在根目录的requirements.txt</p>
-<p><strong>如果你已经安装了tensorflow，请将requirements.txt中的tensorflow行删除再bash中键入如下指令</strong><br><strong>在Deep Q&amp;A键入如下指令进行依赖的安装</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -r requirements.txt</span><br></pre></td></tr></table></figure></p>
-<p><strong>由于我们还要引入数据，所以还需要安装NLTK</strong><br>键入以下命令进行安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m nltk.downloader punkt</span><br></pre></td></tr></table></figure></p>
-<font color="#ff00">至此，基本的Deep Q&amp;A框架已经安装完成<br></font>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>安装TensorFlow2.0你需要预先安装好一些环境，相关的安装信息请前往<a href="https://tensorflow.google.cn/install" target="_blank" rel="noopener">TensorFlow官网</a>进行查看，我这边是使用的Windows系统进行安装，使用的是NVIDIA的独立显卡。<br>需要使用TensorFlow的GPU版本，所以需要提前安装的有：</p>
+<blockquote>
+<ul>
+<li>CUDA</li>
+<li>CUDNN</li>
+<li>python3+<blockquote>
+<p>如果需要虚拟环境还需要安装：</p>
+<ul>
+<li>Anaconda</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>如果是安装CPU的版本便不需要安装提前安装，只需要有python即可</p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h5 id="一、虚拟环境搭建-Anaconda"><a href="#一、虚拟环境搭建-Anaconda" class="headerlink" title="一、虚拟环境搭建(Anaconda)"></a>一、虚拟环境搭建(Anaconda)</h5><p>有了这些提前的准备，TensorFlow2.0的安装就水到渠成了，我使用的是Anaconda的虚拟环境，所以我首先先建立一个虚拟环境：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name tensorfow2 python=3.5 anaconda</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create</td>
+<td>建立一个新的虚拟环境</td>
+</tr>
+<tr>
+<td>–name tensorflow2</td>
+<td>环境名称为tensorflow2</td>
+</tr>
+<tr>
+<td>python=3.5</td>
+<td>python版本为3.5</td>
+</tr>
+<tr>
+<td>anaconda</td>
+<td>安装anaconda的软件包(比如jupyter,numpy)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="二、打开虚拟环境并安装TensorFlow2-0"><a href="#二、打开虚拟环境并安装TensorFlow2-0" class="headerlink" title="二、打开虚拟环境并安装TensorFlow2.0"></a>二、打开虚拟环境并安装TensorFlow2.0</h5><ol>
+<li><p>在bash中输入命令：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate tensorflow2   <span class="comment">#启动虚拟环境</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新pip：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用pip安装TensorFlow2.0<br>现阶段的TensorFlow已经默认安装2.0.0版本所以在安装的时候只需要键入以下代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow   <span class="comment">#CPU的版本使用这个命令</span></span><br><span class="line"><span class="comment">#-----------------------------------------------</span></span><br><span class="line">pip install tensorflow-gpu <span class="comment">#GPU版本使用这个命令</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://yun.ltski.com/?/web-images/hexo/20191006141003.png" alt=""><br>当看到successful的时候就说明安装成功啦</p>
+</li>
+</ol>
+<h2 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h2><p>当我们成功安装了TensorFlow自然是要体验一把了，我使用jupyter notebook进行运行体验(也可以使用pycharm等IDE编写代码)</p>
+<div align="center"><br><br><img src="http://yun.ltski.com/?/web-images/hexo/20191006123840.png" alt=""></div>
 
-<h6 id="第四步：Deep-Q-amp-A的文件结构"><a href="#第四步：Deep-Q-amp-A的文件结构" class="headerlink" title="第四步：Deep Q&amp;A的文件结构"></a>第四步：Deep Q&amp;A的文件结构</h6><p><strong>Deep Q&amp;A文件结构如图所示：</strong><br><img src="4.png" alt=""></p>
-<p><strong>为了方便引用一下返<a href="https://www.cnblogs.com/combfish/p/7428452.html" target="_blank" rel="noopener">梳下鱼</a>的博文：</strong></p>
-<blockquote>
-<p> 数据集：<br>         数据集默认存储在项目中的data文件夹中<br><img src="2.png" alt=""><img src="3.png" alt=""></p>
-<p>clone项目的的时候，Cornell Movie Dialog 是一起下载<br>其他的数据集：OpenSubtitles，Supreme Court Conversation Data，Ubuntu Dialogue Corpus 需要额外下载，<strong>使用时通过参数–corpus 指定</strong><br>         自定义的数据集，可根据既定的模式使用 <a href="https://github.com/Conchylicultor/DeepQA/tree/master/data/lightweight" target="_blank" rel="noopener">https://github.com/Conchylicultor/DeepQA/tree/master/data/lightweight</a> ，<strong>使用时通过参数–corpus lightweight –datasetTag <name>指定</name></strong></p>
-<p><font color="#ff00">注：若需要使用中文数据集，只需修改testdata.py中的断词的地方，引入结巴即可<br></font><br>        将tokens = nltk.word_tokenize(sentencesToken[i]) 换成tokens=list(jieba.cut(sentencesToken[i]))</p>
-</blockquote>
-<p><strong>Deep Q&amp;A的训练模型文件是储存在save文件夹中</strong>直接引用模型要放在这里</p>
-<h6 id="第四步：Deep-Q-amp-A的使用方法"><a href="#第四步：Deep-Q-amp-A的使用方法" class="headerlink" title="第四步：Deep Q&amp;A的使用方法"></a>第四步：Deep Q&amp;A的使用方法</h6><p>直接运行main.py会直接训练data数据库中的数据文件，并生成模型在save/model里<br>如需要进行模型结果的测试，或者运行实例需要在main.py加上一些参数<br>比如</p>
-<blockquote>
-<pre><code>-- main.py --test interactive
--- main.py modelTag &lt;name&gt;
-</code></pre></blockquote>
-<p><font color="#ff00">※接下来要进行的是：导入一个训练好的实例模型，进行测试<br></font></p>
-<h6 id="第五步：下载已经训练好的模型"><a href="#第五步：下载已经训练好的模型" class="headerlink" title="第五步：下载已经训练好的模型"></a>第五步：下载已经训练好的模型</h6><p>官方库README里已经推荐了一些实例和方法，但作者给的测试实例是pretrainedv2模型，但在我的电脑上运行出现了问题，所以接下来我将用另外一个可用的模型。<br>1、打开作者给出的模型下载地址：<a href="https://drive.google.com/drive/folders/0Bw-phsNSkq23c29ZQ2N6X3lyc1U" target="_blank" rel="noopener">https://drive.google.com/drive/folders/0Bw-phsNSkq23c29ZQ2N6X3lyc1U</a> <strong>请科学上网</strong><br>2、然后，下载model-cornell.zip<br>3、将模型解压到SAVE文件夹中<br>4、在Deep Q&amp;A根目录输入指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py --modelTag cornell --<span class="built_in">test</span> interactive</span><br></pre></td></tr></table></figure></p>
-<p>即可对模型进行问答测试了：<br><img src="5.png" alt=""></p>
+<ol>
+<li><p>先测试一下TensorFlow能否正常运行，输入如下代码：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">print(tf.__version__)</span><br></pre></td></tr></table></figure>
+<p> 出现 <strong>2.0.0</strong> 字样就说明正常运行，否则就是安装的流程有问题了</p>
+</li>
+<li>接下来我们看一下官方的 <strong><a href="https://tensorflow.google.cn/tutorials/quickstart/beginner" target="_blank" rel="noopener">初学者TensorFlow2.0教程</a></strong> 具体的代码就请自行去官网看了，我这里只把我的代码粘贴出来：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">print(tf.__version__)</span><br><span class="line">mnist = tf.keras.datasets.mnist <span class="comment">#mnist手写数字数据集</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span> <span class="comment">#数据集赋值并统一化</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">model = tf.keras.models.Sequential([                 <span class="comment">#建立模型</span></span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),     <span class="comment">#输入层28*28</span></span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>),     <span class="comment">#隐藏层128单元，激活函数relu</span></span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),                      <span class="comment">#dropout是20%</span></span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">'softmax'</span>)    <span class="comment">#输出层10，激活函数是softmax</span></span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.compile(optimizer=<span class="string">'adam'</span>,                      <span class="comment">#优化器是adam</span></span><br><span class="line">              loss=<span class="string">'sparse_categorical_crossentropy'</span>,<span class="comment">#loss计算用交叉熵</span></span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])                  <span class="comment">#衡量指标用ACC</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.fit(x_train, y_train, epochs=<span class="number">5</span>)               <span class="comment">#训练模型5遍</span></span><br><span class="line"></span><br><span class="line">model.evaluate(x_test,  y_test, verbose=<span class="number">2</span>)          <span class="comment">#验证模型准确率</span></span><br></pre></td></tr></table></figure>
+<p>结果如图，正确率97%，我们已经初步体验了TensorFlow2.0+Keras，可以继续TensorFlow的学习了</p>
+<div align="center"><br><br> <img src="http://yun.ltski.com/?/web-images/hexo/20191006144443.png" alt=""></div>
 
       
 
@@ -375,7 +400,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://hexo.ltski.com/p/20180429080845/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hexo.ltski.com/p/20191006122027/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -389,18 +414,9 @@
   
 <nav id="article-nav">
   
-    <a href="/p/20180430013222/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          DAC便携式耳放 ELECOM EHP-AHR192安卓版电脑使用教程
-        
-      </div>
-    </a>
   
-  
-    <a href="/p/20180429062425/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">解决Code::Blocks的SpellChecker插件报错问题</div>
+    <a href="/p/20190118105508/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[小白向] 如何部署一个静态网页到自己的服务器并开放访问</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -427,7 +443,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#第一步：将Deep-Q-amp-A下载到自己的硬盘"><span class="toc-number">1.</span> <span class="toc-text">第一步：将Deep Q&amp;A下载到自己的硬盘</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#第二步：下载并安装tensorflow"><span class="toc-number">2.</span> <span class="toc-text">第二步：下载并安装tensorflow</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#第三步：安装Deep-Q-amp-A相关的依赖"><span class="toc-number">3.</span> <span class="toc-text">第三步：安装Deep Q&amp;A相关的依赖</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#第四步：Deep-Q-amp-A的文件结构"><span class="toc-number">4.</span> <span class="toc-text">第四步：Deep Q&amp;A的文件结构</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#第四步：Deep-Q-amp-A的使用方法"><span class="toc-number">5.</span> <span class="toc-text">第四步：Deep Q&amp;A的使用方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#第五步：下载已经训练好的模型"><span class="toc-number">6.</span> <span class="toc-text">第五步：下载已经训练好的模型</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一、虚拟环境搭建-Anaconda"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">一、虚拟环境搭建(Anaconda)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、打开虚拟环境并安装TensorFlow2-0"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">二、打开虚拟环境并安装TensorFlow2.0</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#体验"><span class="toc-number">4.</span> <span class="toc-text">体验</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -446,11 +462,11 @@
     <link rel="stylesheet" href="//c.fansx.com/tc.css"/>
     <!-- 云评论框 start -->
     <div class="article-entry article-header">
-        <div id="tc_s24p20180429080845"></div>
+        <div id="tc_s24p20191006122027"></div>
     </div>
 	<!-- 云评论框 end -->
 	<!-- 云公共JS代码 start (一个网页只需插入一次) -->
-    <script src="//c.fansx.com/?m=c1&sid=24&pid=20180429080845"></script>
+    <script src="//c.fansx.com/?m=c1&sid=24&pid=20191006122027"></script>
 	<!-- 云公共JS代码 end -->
 </div>
   
@@ -572,11 +588,59 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">3DS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">游戏机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DAC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">声乐器材</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">维护</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">建站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">主题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,47 +660,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">服务器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">建站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">维护</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">破解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3DS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">游戏机</a>
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,14 +673,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">单片机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
              
               <li class="article-tag-list-item">

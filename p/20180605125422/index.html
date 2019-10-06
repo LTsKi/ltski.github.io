@@ -8,18 +8,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://hexo.ltski.com">
-  <title>Tag: DAC | ITsuKiの博客小站</title>
+  <title>ITsuKiの博客小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录一些自己的编程，建站，网页的事情，随便谢谢">
-<meta property="og:type" content="website">
+  <meta name="description" content="--- title: Deep Q&amp;amp;A 聊天机器人基本框架的搭建 date: 2018-04-29 20:08:45 tags: - 深度学习 - 教程 - 搭建 - DEEP Q&amp;amp;A toc: true --- **在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;amp;A聊天机器人的基本框架，和示例模型的引入测试** &amp;gt;参考： &amp;gt;[Deep">
+<meta property="og:type" content="article">
 <meta property="og:title" content="ITsuKiの博客小站">
-<meta property="og:url" content="https://hexo.ltski.com/tags/DAC/index.html">
+<meta property="og:url" content="https://hexo.ltski.com/p/20180605125422/index.html">
 <meta property="og:site_name" content="ITsuKiの博客小站">
-<meta property="og:description" content="记录一些自己的编程，建站，网页的事情，随便谢谢">
+<meta property="og:description" content="--- title: Deep Q&amp;amp;A 聊天机器人基本框架的搭建 date: 2018-04-29 20:08:45 tags: - 深度学习 - 教程 - 搭建 - DEEP Q&amp;amp;A toc: true --- **在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;amp;A聊天机器人的基本框架，和示例模型的引入测试** &amp;gt;参考： &amp;gt;[Deep">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-24T09:35:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ITsuKiの博客小站">
-<meta name="twitter:description" content="记录一些自己的编程，建站，网页的事情，随便谢谢">
+<meta name="twitter:description" content="--- title: Deep Q&amp;amp;A 聊天机器人基本框架的搭建 date: 2018-04-29 20:08:45 tags: - 深度学习 - 教程 - 搭建 - DEEP Q&amp;amp;A toc: true --- **在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;amp;A聊天机器人的基本框架，和示例模型的引入测试** &amp;gt;参考： &amp;gt;[Deep">
   
     <link rel="alternative" href="/atom.xml" title="ITsuKiの博客小站" type="application/atom+xml">
   
@@ -174,106 +175,294 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Deep-Q-A-聊天机器人基本框架的搭建" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>---
+title: Deep Q&amp;A 聊天机器人基本框架的搭建
+date: 2018-04-29 20:08:45
+tags:
+- 深度学习
+- 教程
+- 搭建
+- DEEP Q&amp;A
+toc: true
+---
+**在这一篇博文里，我将会用中文写如何在windows系统下搭建Deep Q&amp;A聊天机器人的基本框架，和示例模型的引入测试**
+&gt;参考：
+&gt;[Deep Q&amp;A 仓库](https://github.com/Conchylicultor/DeepQA) :https://github.com/Conchylicultor/DeepQA
+&gt;[论文](https://arxiv.org/pdf/1506.05869.pdf ) :https://arxiv.org/pdf/1506.05869.pdf 
+
+###### 第一步：将Deep Q&amp;A下载到自己的硬盘
+&lt;!--more--&gt;
+**推荐直接clone到本地：**
+&gt;不知如何clone?请先学习[Git的用法]()http://www.runoob.com/git/git-tutorial.html
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/Conchylicultor/DeepQA</span><br></pre></td></tr></table></figure>
+
+###### 第二步：下载并安装tensorflow
+推荐一个官方中文的tensorflow网址：https://www.tensorflow.org/
+**在安装之前：**
+&lt;font color=#ff00&gt;建议先检查一下自己的Python环境是否安装好，之后的命令都需要依赖Python，需要Python3+的版本&lt;br/&gt;&lt;/font&gt;
+
+引用一下官方中文的安装方法:
+(**推荐使用PIP进行安装**)
+&gt;**确定如何安装 TensorFlow**
+&gt;
+&gt;您必须选择安装 TensorFlow 的方式。目前可支持如下几种方式：
+&gt;
+&gt;“原生”pip
+&gt;Anaconda
+&gt;原生 pip 会直接在您的系统上安装 TensorFlow，而不是通过虚拟环境。原生 pip 安装并未隔离在单独的容器中进行，因此可能会干扰系统中其他基于Python 的安装。但是，如果您熟悉 pip 和您的 Python 环境，通常只需一条命令即可进行原生 pip 安装。此外，如果使用原生 pip 安装，用户可以从系&gt;统上的任何目录运行 TensorFlow 程序。
+&gt;
+&gt;在 Anaconda 中，您可以使用 conda 来创建一个虚拟环境。但是，在 Anaconda 内部，我们建议使用 pip install 命令来安装 TensorFlow，而不要使用 conda install 命令。
+&gt;
+&gt;注意：conda 软件包是由社区提供支持的，并没有任何官方支持。也就是说，TensorFlow 团队既不测试也不维护 conda 软件包。若使用该软件包，您需要自行承担相关风险。
+&gt;
+&gt;**使用原生 pip 进行安装**
+&gt;
+&gt;如果您的计算机上未安装以下某个 Python 版本，请立即安装：
+&gt;
+&gt;来自 python.org 的 Python 3.5.x 64 位
+&gt;来自 python.org 的 Python 3.6.x 64 位
+&gt;在 Windows 上，TensorFlow 支持 Python 3.5.x 和 3.6.x。请注意，Python 3 附带有 pip3 软件包管理器，您需使用此程序来安装 TensorFlow。
+&gt;
+&gt;要安装 TensorFlow，请启动终端。然后在该终端中发出正确的 pip3 install 命令。要安装仅支持 CPU 的 TensorFlow 版本，请输入以下命令：
+&gt;
+&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt; pip3 install --upgrade tensorflow</span><br></pre></td></tr></table></figure>
+
+&gt;要安装 GPU 版本的 TensorFlow，请输入以下命令：
+&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt; pip3 install --upgrade tensorflow-gpu</span><br></pre></td></tr></table></figure>
+
+###### 第三步：安装Deep Q&amp;A相关的依赖
+![](1.png)
+根据官方的README，作者已经写好了下载相关依赖的命令，在根目录的requirements.txt
+
+**如果你已经安装了tensorflow，请将requirements.txt中的tensorflow行删除再bash中键入如下指令**
+**在Deep Q&amp;A键入如下指令进行依赖的安装**
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+**由于我们还要引入数据，所以还需要安装NLTK**
+键入以下命令进行安装：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m nltk.downloader punkt</span><br></pre></td></tr></table></figure>
+
+&lt;font color=#ff00&gt;至此，基本的Deep Q&amp;A框架已经安装完成&lt;br/&gt;&lt;/font&gt;
+
+###### 第四步：Deep Q&amp;A的文件结构
+**Deep Q&amp;A文件结构如图所示：**
+![](4.png)
+
+**为了方便引用一下返[梳下鱼](https://www.cnblogs.com/combfish/p/7428452.html)的博文：**
+&gt;  数据集：
+&gt;          数据集默认存储在项目中的data文件夹中
+![](2.png)![](3.png)
+&gt;              
+&gt;clone项目的的时候，Cornell Movie Dialog 是一起下载
+&gt;其他的数据集：OpenSubtitles，Supreme Court Conversation Data，Ubuntu Dialogue Corpus 需要额外下载，**使用时通过参数--corpus 指定**
+&gt;          自定义的数据集，可根据既定的模式使用 https://github.com/Conchylicultor/DeepQA/tree/master/data/lightweight ，**使用时通过参数--corpus lightweight --datasetTag &lt;name&gt;指定**
+&gt;
+&gt; &lt;font color=#ff00&gt;注：若需要使用中文数据集，只需修改testdata.py中的断词的地方，引入结巴即可&lt;br/&gt;&lt;/font&gt;         
+&gt;         将tokens = nltk.word_tokenize(sentencesToken[i]) 换成tokens=list(jieba.cut(sentencesToken[i]))
+
+**Deep Q&amp;A的训练模型文件是储存在save文件夹中**直接引用模型要放在这里
+
+###### 第四步：Deep Q&amp;A的使用方法
+直接运行main.py会直接训练data数据库中的数据文件，并生成模型在save/model里
+如需要进行模型结果的测试，或者运行实例需要在main.py加上一些参数
+比如
+&gt;       -- main.py --test interactive
+&gt;       -- main.py modelTag &lt;name&gt;
+
+&lt;font color=#ff00&gt;※接下来要进行的是：导入一个训练好的实例模型，进行测试&lt;br/&gt;&lt;/font&gt;
+###### 第五步：下载已经训练好的模型
+官方库README里已经推荐了一些实例和方法，但作者给的测试实例是pretrainedv2模型，但在我的电脑上运行出现了问题，所以接下来我将用另外一个可用的模型。
+1、打开作者给出的模型下载地址：https://drive.google.com/drive/folders/0Bw-phsNSkq23c29ZQ2N6X3lyc1U **请科学上网**
+2、然后，下载model-cornell.zip
+3、将模型解压到SAVE文件夹中
+4、在Deep Q&amp;A根目录输入指令：
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py --modelTag cornell --<span class="built_in">test</span> interactive</span><br></pre></td></tr></table></figure>
+
+即可对模型进行问答测试了：
+![](5.png)
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                    <img style="
+                    z-index: -1;
+                    background: linear-gradient(30deg,#e4a0ceba,#937ee89e);
+                    width: 100%;
+                    height: 100%;
+                    top: 0px;
+                    position: absolute;
+                    left: 0px;
+                ">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://yun.ltski.com/?/images/2019/01/06/TBW1v9aFLX/generate%20%281%29.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://yun.ltski.com/?/images/2019/01/06/r76UDipZbI/generate.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/p/20180430013222/" class="archive-article-date">
-  	<time datetime="2018-04-30T05:32:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/p/20180430013222/">DAC便携式耳放 ELECOM EHP-AHR192安卓版电脑使用教程</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DAC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">声乐器材</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        <span id="busuanzi_container_page_pv" style="float: right;display: inline;background: rgb(128, 128, 128);border: 3px solid #808080;border-radius: 10px;padding: 0px 10px;font-size: 10px;color: white;/* margin-right: 25px; *//* margin-left: 20px; */margin: 0px 25px 0px 20px;font-family: -webkit-pictograph;">
+    view：<span id="busuanzi_value_page_pv"></span>
+  </span>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hexo.ltski.com/p/20180605125422/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/p/20180428112845/" class="archive-article-date">
-  	<time datetime="2018-04-28T15:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-28</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/p/20180720082249/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Winfirm程序 相关之串口通讯+蓝牙模块+二位图像传输上位机的设计
+        
+      </div>
+    </a>
+  
+  
+    <a href="/p/20180524012600/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第一次参加 ACM-ICPC 2018陕西邀请赛手记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+   
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/p/20180428112845/">拆了个宜丽客的便携式DAC耳放 EHP-AHR192Sv安卓版</a>
-    </h1>
+  
+<div class="yunping article">
+    <!-- 引入云评论系统css代码 -->
+    <link rel="stylesheet" href="//c.fansx.com/tc.css"/>
+    <!-- 云评论框 start -->
+    <div class="article-entry article-header">
+        <div id="tc_s24p20180605125422"></div>
+    </div>
+	<!-- 云评论框 end -->
+	<!-- 云公共JS代码 start (一个网页只需插入一次) -->
+    <script src="//c.fansx.com/?m=c1&sid=24&pid=20180605125422"></script>
+	<!-- 云公共JS代码 end -->
+</div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DAC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">声乐器材</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -302,9 +491,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
